@@ -1,5 +1,5 @@
 //
-//  JRViewControllerReplacementRoute.h
+//  JRNavigationStackRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
