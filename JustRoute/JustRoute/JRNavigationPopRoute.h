@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  JRNavigationPopRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,29 +22,20 @@
 
 #import "JRViewControllerRoute.h"
 
-@implementation JRViewControllerRoute
+typedef enum {
+    JRNavigationPopRouteTypeDefault = 0,
+    JRNavigationPopRouteTypeToRoot
+}JRNavigationPopRouteType;
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    
-}
+@interface JRNavigationPopRoute : JRViewControllerRoute
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
++ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
 
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
+- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
 
+@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (strong, nonatomic, readonly) UIViewController *destinationViewController;
+@property (assign, nonatomic, readonly) JRNavigationPopRouteType routeType;
 
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
-    }
-    
-}
 
 @end

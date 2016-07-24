@@ -1,5 +1,5 @@
 //
-//  JRNavigationRoute.h
+//  HSBColor.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,23 +20,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#ifndef HSBColor_h
+#define HSBColor_h
 
-typedef enum {
-    JRNavigationRouteTypePush = 0,
-    JRNavigationRouteTypePop
-}JRNavigationRouteType;
-
-@interface JRNavigationRoute : JRViewControllerRoute
-
-+ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController routeType:(JRNavigationRouteType)routeType destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController routeType:(JRNavigationRouteType)routeType destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
-@property (strong, nonatomic, readonly) UIViewController <JRViewControllerRouting> *destinationViewController;
-@property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
-@property (assign, nonatomic, readonly) JRNavigationRouteType routeType;
+typedef struct {
+    float hue;
+    float saturation;
+    float brightness;
+}HSBColor;
 
 
-@end
+
+#endif /* HSBColor_h */

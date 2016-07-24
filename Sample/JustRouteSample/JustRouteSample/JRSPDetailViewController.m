@@ -1,5 +1,6 @@
 //
-//  JRViewControllerRoute.m
+//  JRSPDetailViewController.m
+//  JustRouteSample
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +21,44 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#import "JRSPDetailViewController.h"
+#import "JRSPEntity.h"
 
-@implementation JRViewControllerRoute
+@interface JRSPDetailViewController ()
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
+@end
+
+@implementation JRSPDetailViewController
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [_label setText:[_entity text]];
+    HSBColor hsbColor = [_entity hsbColor];
+    [[self view] setBackgroundColor:[UIColor colorWithHue:hsbColor.hue saturation:hsbColor.saturation brightness:hsbColor.brightness alpha:1.0f]];
     
 }
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
-
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
-
-
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
+- (void)setEntity:(JRSPEntity *)entity{
+    _entity = entity;
+    if ([self isViewLoaded]){
+        [_label setText:[entity text]];
+        HSBColor hsbColor = [entity hsbColor];
+        [[self view] setBackgroundColor:[UIColor colorWithHue:hsbColor.hue saturation:hsbColor.saturation brightness:hsbColor.brightness alpha:1.0f]];
     }
-    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"");
+}
+
+- (BOOL)useBackButton{
+    return YES;
+}
+
+- (void)backButtonTap:(UIButton *)sender{
+  //  [[self navigationController] popViewControllerAnimated:YES];
 }
 
 @end

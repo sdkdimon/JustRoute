@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  HSBColor.c
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#include <stdlib.h>
+#include "HSBColorTool.h"
 
-@implementation JRViewControllerRoute
-
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    
+HSBColor HSBColorRandMake(){
+    HSBColor hsbColor;
+    hsbColor.hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    hsbColor.saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    hsbColor.brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    return hsbColor;
 }
-
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
-
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
-
-
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
-    }
-    
-}
-
-@end

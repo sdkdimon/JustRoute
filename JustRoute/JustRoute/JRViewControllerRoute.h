@@ -34,6 +34,6 @@
 - (UIViewController <JRViewControllerRouting> *)sourceViewController;
 - (UIViewController <JRViewControllerRouting> *)destinationViewController;
 
-- (void)notifyPrepareDestinationViewControllerForRoute;
+- (void)prepareForRoute;
 
 @end

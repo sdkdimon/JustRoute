@@ -1,5 +1,5 @@
 //
-//  JRNavigationStackItemRoute.m
+//  JRSPHSBColorRandGenerator.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,36 +20,11 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationStackItemRoute.h"
+#import <Foundation/Foundation.h>
+#import "HSBColor.h"
 
-@interface JRNavigationStackItemRoute ()
+@interface JRSPHSBColorRandGenerator : NSObject
 
-@property (strong, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *destinationViewController;
-
-@end
-
-@implementation JRNavigationStackItemRoute
-
-+ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
-    return [[self alloc] initWithDestinationViewControllerFactoryBlock:destinationViewControllerFactoryBlock];
-}
-
-- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
-    self = [super init];
-    if (self != nil){
-        _destinationViewControllerFactoryBlock = destinationViewControllerFactoryBlock;
-    }
-    return self;
-}
-
-- (void)loadDestinationViewController{
-    if (_destinationViewControllerFactoryBlock != NULL){
-        [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
-    }
-}
-
-- (void)unloadDestinationViewController{
-    [self setDestinationViewController:nil];
-}
+- (HSBColor)hsbColorRandMake;
 
 @end

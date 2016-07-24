@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  JRSPDetailViewController.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#import "JRSPBaseViewController.h"
+#import "JRSPDetailViewControllerInput.h"
 
-@implementation JRViewControllerRoute
+@class JRViewControllerRoute;
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    
-}
+@interface JRSPDetailViewController : JRSPBaseViewController <JRSPDetailViewControllerInput>
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
+@property (strong, nonatomic, readwrite) JRSPEntity *entity;
+@property (strong, nonatomic, readwrite) JRViewControllerRoute *popRoute;
 
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
-
-
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
-    }
-    
-}
 
 @end

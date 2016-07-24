@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  JRNavigationPushRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,29 +22,16 @@
 
 #import "JRViewControllerRoute.h"
 
-@implementation JRViewControllerRoute
+@interface JRNavigationPushRoute : JRViewControllerRoute
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    
-}
++ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
+- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
+@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (strong, nonatomic, readonly) UIViewController *destinationViewController;
+@property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
-    }
-    
-}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  JRNavigationStackItemRoute.h
+//  JRSPBaseViewController.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,20 +20,43 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#import "JRSPBaseViewController.h"
 
-@interface JRNavigationStackItemRoute : JRViewControllerRoute
-
-+ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-@property (weak, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *sourceViewController;
-
-@property (strong, nonatomic, readonly) UIViewController <JRViewControllerRouting> *destinationViewController;
-@property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
+@implementation JRSPBaseViewController
 
 
-- (void)loadDestinationViewController;
-- (void)unloadDestinationViewController;
+- (void)setupNavigationBar{
+    [[[self navigationController] navigationBar] setTranslucent:NO];
+    if ([self useBackButton]){
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [backButton setTitle:@"< Back" forState:UIControlStateNormal];
+        [backButton sizeToFit];
+        [backButton addTarget:self action:@selector(backButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        self.navigationItem.hidesBackButton = YES;
+        [[self navigationItem] setLeftBarButtonItem:backBarButtonItem];
+    }
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setupNavigationBar];
+}
+
+- (BOOL)useBackButton{
+    return NO;
+}
+
+- (void)backButtonTap:(UIButton *)sender{
+    
+}
+
+- (void)prepareForRoute:(JRViewControllerRoute *)route{
+    
+}
 
 @end

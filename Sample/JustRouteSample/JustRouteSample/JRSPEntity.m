@@ -1,5 +1,5 @@
 //
-//  JRNavigationStackRoute.h
+//  JRSPEntity.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,17 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
-#import "JRNavigationStackItemRoute.h"
+#import "JRSPEntity.h"
 
-@interface JRNavigationStackRoute : JRViewControllerRoute
-
-+ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray <JRNavigationStackItemRoute *> *)stackItemRoutes;
-
-- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray <JRNavigationStackItemRoute *> *)stackItemRoutes;
-
-@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
-@property (strong, nonatomic, readonly) NSArray <JRNavigationStackItemRoute *> *stackItemRoutes;
-
+@implementation JRSPEntity
 
 @end

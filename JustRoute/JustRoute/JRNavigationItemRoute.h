@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  JRNavigationItemRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,29 +22,18 @@
 
 #import "JRViewControllerRoute.h"
 
-@implementation JRViewControllerRoute
+@interface JRNavigationItemRoute : JRViewControllerRoute
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    
-}
++ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
+- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
+@property (weak, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *sourceViewController;
 
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
+@property (strong, nonatomic, readonly) UIViewController <JRViewControllerRouting> *destinationViewController;
+@property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
-    }
-    
-}
+- (void)loadDestinationViewController;
+- (void)unloadDestinationViewController;
 
 @end

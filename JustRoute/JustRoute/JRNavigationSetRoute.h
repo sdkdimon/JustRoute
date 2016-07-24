@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  JRNavigationSetRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,30 +21,27 @@
 //  THE SOFTWARE.
 
 #import "JRViewControllerRoute.h"
+#import "JRNavigationItemRoute.h"
 
-@implementation JRViewControllerRoute
-
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
+typedef enum {
     
-}
-
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
-
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
-
-
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
+    JRNavigationSetRouteTypeReplace = 0,
+    JRNavigationSetRouteTypeAppend,
+    JRNavigationSetRouteTypeInsert,
+    JRNavigationSetRouteTypeCustom
     
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
-    }
-    
-}
+}JRNavigationSetRouteType;
+
+@interface JRNavigationSetRoute : JRViewControllerRoute
+
++ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
+
+- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
+
+@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (strong, nonatomic, readonly) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
+@property (assign, nonatomic, readonly) JRNavigationSetRouteType routeType;
+
+@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
 
 @end

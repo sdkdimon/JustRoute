@@ -1,5 +1,5 @@
 //
-//  JRNavigationStackRoute.m
+//  JRNavigationPushRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,27 +20,26 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationStackRoute.h"
+#import "JRNavigationPushRoute.h"
 
-
-@interface JRNavigationStackRoute ()
+@interface JRNavigationPushRoute ()
 
 @property (weak, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *sourceViewController;
-@property (strong, nonatomic, readwrite) NSArray <JRNavigationStackItemRoute *> *stackItemRoutes;
+@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 @end
 
-@implementation JRNavigationStackRoute
+@implementation JRNavigationPushRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray<JRNavigationStackItemRoute *> *)stackItemRoutes{
-    return [[self alloc] initWithSourceViewController:sourceViewController stackItemRoutes:stackItemRoutes];
++ (instancetype)routeWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
+    return [[self alloc] initWithSourceViewController:sourceViewController destinationViewControllerFactoryBlock:destinationViewControllerFactoryBlock];
 }
 
-- (instancetype)initWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray<JRNavigationStackItemRoute *> *)stackItemRoutes{
+- (instancetype)initWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
     self = [super init];
     if (self != nil){
         _sourceViewController = sourceViewController;
-        _stackItemRoutes = stackItemRoutes;
+        _destinationViewControllerFactoryBlock = destinationViewControllerFactoryBlock;
     }
     return self;
 }
@@ -49,22 +48,14 @@
     UINavigationController *navigationController = [_sourceViewController navigationController];
     NSAssert(navigationController != nil, @"Source view controller must have a navigation controller");
     
-    NSMutableArray *destinationViewControllers = [[NSMutableArray alloc] init];
-    for (JRNavigationStackItemRoute *stackItemRoute in _stackItemRoutes){
-        [stackItemRoute loadDestinationViewController];
-        [stackItemRoute setSourceViewController:_sourceViewController];
-        UIViewController <JRViewControllerRouting> *destinationViewController = [stackItemRoute destinationViewController];
-        [destinationViewControllers addObject:destinationViewController];
-        [stackItemRoute notifyPrepareDestinationViewControllerForRoute];
+    [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
+    [self prepareForRoute];
+    [navigationController pushViewController:_destinationViewController animated:animated];
+    
+    [self setDestinationViewController:nil];
+    if (completionBlock != NULL){
+        completionBlock();
     }
-    [navigationController setViewControllers:destinationViewControllers animated:animated];
-    for (JRNavigationStackItemRoute *stackItemRoute in _stackItemRoutes){
-        [stackItemRoute unloadDestinationViewController];
-    }
-        
-        if (completionBlock != NULL){
-            completionBlock();
-        }
     
 }
 

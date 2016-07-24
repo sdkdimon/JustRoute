@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRoute.m
+//  JRNavigationItemRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,36 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#import "JRNavigationItemRoute.h"
 
-@implementation JRViewControllerRoute
+@interface JRNavigationItemRoute ()
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    
+@property (strong, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *destinationViewController;
+
+@end
+
+@implementation JRNavigationItemRoute
+
++ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
+    return [[self alloc] initWithDestinationViewControllerFactoryBlock:destinationViewControllerFactoryBlock];
 }
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
-    return nil;
-}
-
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
-    return nil;
-}
-
-
-- (void)prepareForRoute{
-   
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
+- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
+    self = [super init];
+    if (self != nil){
+        _destinationViewControllerFactoryBlock = destinationViewControllerFactoryBlock;
     }
-    
+    return self;
+}
+
+- (void)loadDestinationViewController{
+    if (_destinationViewControllerFactoryBlock != NULL){
+        [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
+    }
+}
+
+- (void)unloadDestinationViewController{
+    [self setDestinationViewController:nil];
 }
 
 @end
