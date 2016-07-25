@@ -23,16 +23,16 @@
 #import "JRSPMainViewController.h"
 #import "JRSPEntity.h"
 #import "JRSPDetailViewControllerInput.h"
-#import "JRSPHSBColorRandGenerator.h"
-#import <JustRoute/JRNavigationPushRoute.h>
+#import <JustRoute/JRViewControllerRoute.h>
 
+#import "JRSPRouter.h"
 
 @interface JRSPMainViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (assign, nonatomic, readwrite) NSUInteger selectedEntityIdx;
 
-@property (strong, nonatomic, readwrite) UIStoryboard *mainStoryboard;
+
 
 @end
 
@@ -40,26 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    __weak typeof (self) welf = self;
-    
-    _detailsRoute = [JRNavigationPushRoute routeWithSourceViewController:self  destinationViewControllerFactoryBlock:^UIViewController<JRViewControllerRouting> *{
-        return [[welf mainStoryboard] instantiateViewControllerWithIdentifier:@"JRSPDetailViewController"];
-    }];
-    
-    
-    JRSPHSBColorRandGenerator *colorGenerator = [[JRSPHSBColorRandGenerator alloc] init];
-    
-    NSMutableArray *entities = [[NSMutableArray alloc] init];
-    for (int idx = 0; idx < 20; idx++){
-        JRSPEntity *entity = [[JRSPEntity alloc] init];
-        [entity setText:[NSString stringWithFormat:@"Entity %@",@(idx)]];
-        [entity setHsbColor:[colorGenerator hsbColorRandMake]];
-        [entities addObject:entity];
-    }
-    [self setEntities:[entities copy]];
-    
+    _router = [[JRSPRouter alloc] init];
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
 }
@@ -70,13 +51,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_entities count];
+    return [[_router entities] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
     NSUInteger entityIdx = [indexPath row];
-    JRSPEntity *entity = [_entities objectAtIndex:entityIdx];
+    JRSPEntity *entity = [[_router entities] objectAtIndex:entityIdx];
     
     UILabel *textLabel = [cell textLabel];
     [textLabel setText:[entity text]];
@@ -90,16 +71,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_detailsRoute routeAnimated:YES completion:nil];
+    JRSPEntity *entity = [[_router entities] objectAtIndex:[indexPath row]];
+    [_router pushEntity:entity withSender:self];
+    //[_detailsRoute routeAnimated:YES completion:nil];
 }
 
-- (void)prepareForRoute:(JRViewControllerRoute *)route{
-    id destinationViewController = [route destinationViewController];
-    if ([destinationViewController conformsToProtocol:@protocol(JRSPDetailViewControllerInput)]){
-        UIViewController <JRSPDetailViewControllerInput> *detailInputViewController = destinationViewController;
-        [detailInputViewController setEntity:[_entities objectAtIndex:_selectedEntityIdx]];
-    }
-}
+
 
 
 @end

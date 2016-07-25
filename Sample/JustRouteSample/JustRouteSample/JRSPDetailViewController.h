@@ -27,7 +27,7 @@
 
 @interface JRSPDetailViewController : JRSPBaseViewController <JRSPDetailViewControllerInput>
 
-@property (strong, nonatomic, readwrite) JRSPEntity *entity;
+
 @property (strong, nonatomic, readwrite) JRViewControllerRoute *popRoute;
 
 

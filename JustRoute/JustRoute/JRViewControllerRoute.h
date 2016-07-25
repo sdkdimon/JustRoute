@@ -26,13 +26,15 @@
 
 @interface JRViewControllerRoute : NSObject
 
-@property (strong, nonatomic, readwrite) NSString *name;
+@property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
 
 - (void)routeAnimated:(BOOL)animated completion:(void(^)())completionBlock;
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController;
-- (UIViewController <JRViewControllerRouting> *)destinationViewController;
+@property (weak, nonatomic, readwrite) id <JRViewControllerRouting> delegate;
+
+- (UIViewController *)sourceViewController;
+- (UIViewController *)destinationViewController;
 
 - (void)prepareForRoute;
 

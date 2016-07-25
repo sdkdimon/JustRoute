@@ -32,11 +32,11 @@
 
 @implementation JRNavigationSetRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
++ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
     return [[self alloc] initWithSourceViewController:sourceViewController stackItemRoutes:stackItemRoutes routeType:routeType];
 }
 
-- (instancetype)initWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
     self = [super init];
     if (self != nil){
         _sourceViewController = sourceViewController;
@@ -54,7 +54,7 @@
     for (JRNavigationItemRoute *stackItemRoute in _stackItemRoutes){
         [stackItemRoute loadDestinationViewController];
         [stackItemRoute setSourceViewController:_sourceViewController];
-        UIViewController <JRViewControllerRouting> *destinationViewController = [stackItemRoute destinationViewController];
+        UIViewController *destinationViewController = [stackItemRoute destinationViewController];
         [destinationViewControllers addObject:destinationViewController];
         [stackItemRoute prepareForRoute];
     }

@@ -28,23 +28,23 @@
     
 }
 
-- (UIViewController <JRViewControllerRouting> *)sourceViewController{
+- (UIViewController *)sourceViewController{
     return nil;
 }
 
-- (UIViewController <JRViewControllerRouting> *)destinationViewController{
+- (UIViewController *)destinationViewController{
     return nil;
 }
-
 
 - (void)prepareForRoute{
    
-    UIViewController <JRViewControllerRouting> *sorceViewController = [self sourceViewController];
-    
-    if (sorceViewController != nil && [sorceViewController conformsToProtocol:@protocol(JRViewControllerRouting)]){
-        [sorceViewController prepareForRoute:self];
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
+        [_delegate prepareForRoute:self];
     }
     
 }
+
+
+
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A2B60161D45FC1700E0D745 /* JRNavigationPopRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AFFA29C1D451AC300292399 /* JRNavigationPopRoute.h */; };
 		8A444D9E1D43DD7300E5E429 /* JRViewControllerRouting.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F15D1D3FD98F006CBA9A /* JRViewControllerRouting.h */; };
 		8A444D9F1D43DD7300E5E429 /* JRViewControllerRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F15F1D3FD98F006CBA9A /* JRViewControllerRoute.h */; };
 		8A444DA01D43DD7300E5E429 /* JRViewControllerFactoryBlock.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F1601D3FD98F006CBA9A /* JRViewControllerFactoryBlock.h */; };
@@ -27,6 +28,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				8A2B60161D45FC1700E0D745 /* JRNavigationPopRoute.h in CopyFiles */,
 				8A444D9E1D43DD7300E5E429 /* JRViewControllerRouting.h in CopyFiles */,
 				8A444D9F1D43DD7300E5E429 /* JRViewControllerRoute.h in CopyFiles */,
 				8A444DA01D43DD7300E5E429 /* JRViewControllerFactoryBlock.h in CopyFiles */,

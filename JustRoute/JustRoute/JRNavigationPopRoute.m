@@ -24,18 +24,18 @@
 
 @interface JRNavigationPopRoute ()
 
-@property (weak, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 @end
 
 @implementation JRNavigationPopRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
++ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
     return [[self alloc] initWithSourceViewController:sourceViewController destinationViewController:destinationViewController routeType:routeType];
 }
 
-- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
     self = [super init];
     if (self != nil){
         _sourceViewController = sourceViewController;

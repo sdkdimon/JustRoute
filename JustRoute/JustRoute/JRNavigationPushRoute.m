@@ -31,11 +31,11 @@
 
 @implementation JRNavigationPushRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
++ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
     return [[self alloc] initWithSourceViewController:sourceViewController destinationViewControllerFactoryBlock:destinationViewControllerFactoryBlock];
 }
 
-- (instancetype)initWithSourceViewController:(UIViewController<JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
     self = [super init];
     if (self != nil){
         _sourceViewController = sourceViewController;

@@ -24,11 +24,11 @@
 
 @interface JRNavigationPushRoute : JRViewControllerRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
++ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (weak, nonatomic, readonly) UIViewController *sourceViewController;
 @property (strong, nonatomic, readonly) UIViewController *destinationViewController;
 @property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 

@@ -21,12 +21,11 @@
 //  THE SOFTWARE.
 
 #import "JRSPBaseViewController.h"
-@class JRSPEntity;
+@class JRSPRouter;
 
 @interface JRSPMainViewController : JRSPBaseViewController
 
-@property (strong, nonatomic, readwrite) NSArray <JRSPEntity *> *entities;
-@property (strong, nonatomic, readwrite) JRViewControllerRoute *detailsRoute;
+@property (strong, nonatomic, readwrite) JRSPRouter *router;
 
 @end
 

@@ -34,11 +34,11 @@ typedef enum {
 
 @interface JRNavigationSetRoute : JRViewControllerRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
++ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
 
-- (instancetype)initWithSourceViewController:(UIViewController <JRViewControllerRouting> *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
 
-@property (weak, nonatomic, readonly) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (weak, nonatomic, readonly) UIViewController *sourceViewController;
 @property (strong, nonatomic, readonly) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
 @property (assign, nonatomic, readonly) JRNavigationSetRouteType routeType;
 

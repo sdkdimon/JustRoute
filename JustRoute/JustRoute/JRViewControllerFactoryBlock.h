@@ -23,9 +23,7 @@
 #ifndef JRViewControllerFactoryBlock_h
 #define JRViewControllerFactoryBlock_h
 
-#import "JRViewControllerRouting.h"
-
-typedef UIViewController <JRViewControllerRouting> *(^JRViewControllerFactoryBlock)();
+typedef UIViewController *(^JRViewControllerFactoryBlock)();
 
 
 #endif /* JRViewControllerFactoryBlock_h */

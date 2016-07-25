@@ -24,7 +24,7 @@
 
 @interface JRNavigationItemRoute ()
 
-@property (strong, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *destinationViewController;
+@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 @end
 

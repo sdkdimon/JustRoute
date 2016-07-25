@@ -21,10 +21,10 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-@class JRSPEntity;
+@class JRSPRouter;
 
 @protocol JRSPDetailViewControllerInput <NSObject>
 
-- (void)setEntity:(JRSPEntity *)entity;
+- (void)setRouter:(JRSPRouter *)router;
 
 @end

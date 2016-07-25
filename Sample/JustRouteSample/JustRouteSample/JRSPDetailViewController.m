@@ -23,10 +23,13 @@
 
 #import "JRSPDetailViewController.h"
 #import "JRSPEntity.h"
+#import "JRSPRouter.h"
 
 @interface JRSPDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic, readwrite) JRSPRouter *router;
+@property (strong, nonatomic, readwrite) JRSPEntity *entity;
 
 @end
 
@@ -40,6 +43,17 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    UIButton *nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [nextButton setTitle:@"Next >" forState:UIControlStateNormal];
+    [nextButton sizeToFit];
+    [nextButton addTarget:self action:@selector(nextButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:nextButton];
+    self.navigationItem.hidesBackButton = YES;
+    [[self navigationItem] setRightBarButtonItem:backBarButtonItem];
+}
+
 - (void)setEntity:(JRSPEntity *)entity{
     _entity = entity;
     if ([self isViewLoaded]){
@@ -49,6 +63,11 @@
     }
 }
 
+- (void)setRouter:(JRSPRouter *)router{
+    _router = router;
+    [self setEntity:[[router entityStack] lastObject]];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     NSLog(@"");
 }
@@ -56,9 +75,17 @@
 - (BOOL)useBackButton{
     return YES;
 }
+- (IBAction)toListButtonTap:(UIButton *)sender {
+    [_router popToListOfEntitiesWithSender:self];
+}
+
+- (void)nextButtonTap:(UIButton *)sender{
+    [_router pushEntity:nil withSender:self];
+}
+
 
 - (void)backButtonTap:(UIButton *)sender{
-  //  [[self navigationController] popViewControllerAnimated:YES];
+    [_router popEntityWithSender:self];
 }
 
 @end

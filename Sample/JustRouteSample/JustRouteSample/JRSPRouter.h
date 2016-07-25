@@ -1,5 +1,5 @@
 //
-//  JRNavigationPopRoute.h
+//  JRSPEntityService.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,22 +20,18 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#import <UIKit/UIKit.h>
+@class JRSPEntity;
+@class JRViewControllerRoute;
 
-typedef enum {
-    JRNavigationPopRouteTypeDefault = 0,
-    JRNavigationPopRouteTypeToRoot
-}JRNavigationPopRouteType;
+@interface JRSPRouter : NSObject
 
-@interface JRNavigationPopRoute : JRViewControllerRoute
+@property (strong, nonatomic, readwrite) NSArray <JRSPEntity *> *entities;
 
-+ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
+@property (strong, nonatomic, readonly) NSMutableArray *entityStack;
 
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
-
-@property (weak, nonatomic, readonly) UIViewController *sourceViewController;
-@property (strong, nonatomic, readonly) UIViewController *destinationViewController;
-@property (assign, nonatomic, readonly) JRNavigationPopRouteType routeType;
-
+- (void)pushEntity:(JRSPEntity *)entity withSender:(UIViewController *)sender;
+- (void)popEntityWithSender:(UIViewController *)sender;
+- (void)popToListOfEntitiesWithSender:(UIViewController *)sender;
 
 @end
