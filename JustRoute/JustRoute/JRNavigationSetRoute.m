@@ -25,7 +25,7 @@
 
 @interface JRNavigationSetRoute ()
 
-@property (weak, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
 
 @end

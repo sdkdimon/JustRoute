@@ -24,7 +24,7 @@
 
 @interface JRNavigationPushRoute ()
 
-@property (weak, nonatomic, readwrite) UIViewController <JRViewControllerRouting> *sourceViewController;
+@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 @end
