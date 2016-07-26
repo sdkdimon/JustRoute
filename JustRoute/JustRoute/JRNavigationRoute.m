@@ -28,11 +28,16 @@
     self = [super init];
     if (self != nil){
         _sourceViewController = sourceViewController;
-        UINavigationController *navigationController = [sourceViewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)sourceViewController : [sourceViewController navigationController];
-        NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
-        _navigationController = navigationController;
+        NSAssert(sourceViewController != nil, @"Source view controller can not be nil");
     }
     return self;
+}
+
+
+- (UINavigationController *)navigationController{
+    UINavigationController *navigationController = [_sourceViewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)_sourceViewController : [_sourceViewController navigationController];
+    NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
+    return navigationController;
 }
 
 @end
