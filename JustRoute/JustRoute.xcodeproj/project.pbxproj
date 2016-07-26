@@ -18,6 +18,8 @@
 		8AB8F1681D3FD98F006CBA9A /* JRNavigationSetRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F1611D3FD98F006CBA9A /* JRNavigationSetRoute.m */; };
 		8AB8F1691D3FD98F006CBA9A /* JRNavigationItemRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F1631D3FD98F006CBA9A /* JRNavigationItemRoute.m */; };
 		8AB8F16A1D3FD98F006CBA9A /* JRNavigationPushRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F1651D3FD98F006CBA9A /* JRNavigationPushRoute.m */; };
+		8AEB5CA01D47975F00E53D05 /* JRNavigationRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB5C9F1D47975F00E53D05 /* JRNavigationRoute.m */; };
+		8AEB5CA11D47991600E53D05 /* JRNavigationRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AEB5C9E1D47975F00E53D05 /* JRNavigationRoute.h */; };
 		8AFFA29E1D451AC300292399 /* JRNavigationPopRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFFA29D1D451AC300292399 /* JRNavigationPopRoute.m */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				8AEB5CA11D47991600E53D05 /* JRNavigationRoute.h in CopyFiles */,
 				8A2B60161D45FC1700E0D745 /* JRNavigationPopRoute.h in CopyFiles */,
 				8A444D9E1D43DD7300E5E429 /* JRViewControllerRouting.h in CopyFiles */,
 				8A444D9F1D43DD7300E5E429 /* JRViewControllerRoute.h in CopyFiles */,
@@ -52,6 +55,8 @@
 		8AB8F1641D3FD98F006CBA9A /* JRNavigationItemRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationItemRoute.h; sourceTree = "<group>"; };
 		8AB8F1651D3FD98F006CBA9A /* JRNavigationPushRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationPushRoute.m; sourceTree = "<group>"; };
 		8AB8F1661D3FD98F006CBA9A /* JRNavigationPushRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationPushRoute.h; sourceTree = "<group>"; };
+		8AEB5C9E1D47975F00E53D05 /* JRNavigationRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationRoute.h; sourceTree = "<group>"; };
+		8AEB5C9F1D47975F00E53D05 /* JRNavigationRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationRoute.m; sourceTree = "<group>"; };
 		8AFFA29C1D451AC300292399 /* JRNavigationPopRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationPopRoute.h; sourceTree = "<group>"; };
 		8AFFA29D1D451AC300292399 /* JRNavigationPopRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationPopRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +103,8 @@
 				8AB8F1651D3FD98F006CBA9A /* JRNavigationPushRoute.m */,
 				8AFFA29C1D451AC300292399 /* JRNavigationPopRoute.h */,
 				8AFFA29D1D451AC300292399 /* JRNavigationPopRoute.m */,
+				8AEB5C9E1D47975F00E53D05 /* JRNavigationRoute.h */,
+				8AEB5C9F1D47975F00E53D05 /* JRNavigationRoute.m */,
 			);
 			path = JustRoute;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AB8F1681D3FD98F006CBA9A /* JRNavigationSetRoute.m in Sources */,
+				8AEB5CA01D47975F00E53D05 /* JRNavigationRoute.m in Sources */,
 				8AB8F16A1D3FD98F006CBA9A /* JRNavigationPushRoute.m in Sources */,
 				8AB8F1671D3FD98F006CBA9A /* JRViewControllerRoute.m in Sources */,
 				8AFFA29E1D451AC300292399 /* JRNavigationPopRoute.m in Sources */,

@@ -24,7 +24,6 @@
 
 @interface JRNavigationPopRoute ()
 
-@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 @end
@@ -36,9 +35,8 @@
 }
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
-    self = [super init];
+    self = [super initWithSourceViewController:sourceViewController];
     if (self != nil){
-        _sourceViewController = sourceViewController;
         _destinationViewController = destinationViewController;
         _routeType = routeType;
     }
@@ -46,8 +44,7 @@
 }
 
 - (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    UINavigationController *navigationController = [_sourceViewController navigationController];
-    NSAssert(navigationController != nil, @"Source view controller must have a navigation controller");
+    UINavigationController *navigationController = [self navigationController];
     [self prepareForRoute];
     switch (_routeType) {
         case JRNavigationPopRouteTypeDefault:{

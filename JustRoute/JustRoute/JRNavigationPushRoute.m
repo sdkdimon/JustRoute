@@ -24,7 +24,6 @@
 
 @interface JRNavigationPushRoute ()
 
-@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 @end
@@ -36,18 +35,16 @@
 }
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
-    self = [super init];
+    self = [super initWithSourceViewController:sourceViewController];
     if (self != nil){
-        _sourceViewController = sourceViewController;
         _destinationViewControllerFactoryBlock = destinationViewControllerFactoryBlock;
     }
     return self;
 }
 
 - (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    UINavigationController *navigationController = [_sourceViewController navigationController];
-    NSAssert(navigationController != nil, @"Source view controller must have a navigation controller");
-    
+    UINavigationController *navigationController = [self navigationController];
+
     [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
     [self prepareForRoute];
     [navigationController pushViewController:_destinationViewController animated:animated];

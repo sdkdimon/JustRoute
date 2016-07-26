@@ -1,5 +1,5 @@
 //
-//  JRNavigationSetRoute.h
+//  JRNavigationRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,27 +20,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationRoute.h"
-#import "JRNavigationItemRoute.h"
+#import "JRViewControllerRoute.h"
 
-typedef enum {
-    
-    JRNavigationSetRouteTypeReplace = 0,
-    JRNavigationSetRouteTypeAppend,
-    JRNavigationSetRouteTypeInsert,
-    JRNavigationSetRouteTypeCustom
-    
-}JRNavigationSetRouteType;
+@interface JRNavigationRoute : JRViewControllerRoute
 
-@interface JRNavigationSetRoute : JRNavigationRoute
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController;
 
-+ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
-
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
-
-@property (strong, nonatomic, readonly) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
-@property (assign, nonatomic, readonly) JRNavigationSetRouteType routeType;
-
-@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
+@property (weak, nonatomic, readonly) UIViewController *sourceViewController;
+@property (weak, nonatomic, readonly) UINavigationController *navigationController;
 
 @end

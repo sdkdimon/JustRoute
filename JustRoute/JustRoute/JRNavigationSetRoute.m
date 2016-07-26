@@ -25,7 +25,6 @@
 
 @interface JRNavigationSetRoute ()
 
-@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
 
 @end
@@ -37,9 +36,8 @@
 }
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
-    self = [super init];
+    self = [super initWithSourceViewController:sourceViewController];
     if (self != nil){
-        _sourceViewController = sourceViewController;
         _stackItemRoutes = stackItemRoutes;
         _routeType = routeType;
     }
@@ -47,13 +45,12 @@
 }
 
 - (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    UINavigationController *navigationController = [_sourceViewController navigationController];
-    NSAssert(navigationController != nil, @"Source view controller must have a navigation controller");
+    UINavigationController *navigationController = [self navigationController];
     
     NSMutableArray *destinationViewControllers = [[NSMutableArray alloc] init];
     for (JRNavigationItemRoute *stackItemRoute in _stackItemRoutes){
         [stackItemRoute loadDestinationViewController];
-        [stackItemRoute setSourceViewController:_sourceViewController];
+        [stackItemRoute setSourceViewController:[self sourceViewController]];
         UIViewController *destinationViewController = [stackItemRoute destinationViewController];
         [destinationViewControllers addObject:destinationViewController];
         [stackItemRoute prepareForRoute];

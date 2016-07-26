@@ -20,15 +20,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerRoute.h"
+#import "JRNavigationRoute.h"
 
-@interface JRNavigationPushRoute : JRViewControllerRoute
+@interface JRNavigationPushRoute : JRNavigationRoute
 
 + (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-@property (weak, nonatomic, readonly) UIViewController *sourceViewController;
 @property (strong, nonatomic, readonly) UIViewController *destinationViewController;
 @property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 

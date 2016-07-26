@@ -1,5 +1,5 @@
 //
-//  JRNavigationSetRoute.h
+//  JRNavigationRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,26 +21,18 @@
 //  THE SOFTWARE.
 
 #import "JRNavigationRoute.h"
-#import "JRNavigationItemRoute.h"
 
-typedef enum {
-    
-    JRNavigationSetRouteTypeReplace = 0,
-    JRNavigationSetRouteTypeAppend,
-    JRNavigationSetRouteTypeInsert,
-    JRNavigationSetRouteTypeCustom
-    
-}JRNavigationSetRouteType;
+@implementation JRNavigationRoute
 
-@interface JRNavigationSetRoute : JRNavigationRoute
-
-+ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
-
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
-
-@property (strong, nonatomic, readonly) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
-@property (assign, nonatomic, readonly) JRNavigationSetRouteType routeType;
-
-@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
+- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController{
+    self = [super init];
+    if (self != nil){
+        _sourceViewController = sourceViewController;
+        UINavigationController *navigationController = [sourceViewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)sourceViewController : [sourceViewController navigationController];
+        NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
+        _navigationController = navigationController;
+    }
+    return self;
+}
 
 @end
