@@ -29,9 +29,9 @@ typedef enum {
 
 @interface JRNavigationPopRoute : JRNavigationRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
++ (instancetype)routeWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
 
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
+- (instancetype)initWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
 
 @property (assign, nonatomic, readwrite) JRNavigationPopRouteType routeType;
 

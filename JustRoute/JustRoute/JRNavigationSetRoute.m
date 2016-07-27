@@ -24,12 +24,12 @@
 
 @implementation JRNavigationSetRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
-    return [[self alloc] initWithSourceViewController:sourceViewController stackItemRoutes:stackItemRoutes routeType:routeType];
++ (instancetype)routeWithStackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
+    return [[self alloc] initWithStackItemRoutes:stackItemRoutes routeType:routeType];
 }
 
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
-    self = [super initWithSourceViewController:sourceViewController];
+- (instancetype)initWithStackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
+    self = [super init];
     if (self != nil){
         _stackItemRoutes = stackItemRoutes;
         _routeType = routeType;
@@ -37,13 +37,13 @@
     return self;
 }
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    UINavigationController *navigationController = [self navigationController];
+- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
+    UINavigationController *navigationController = [self extractNavigationController:sender];
     
     NSMutableArray *destinationViewControllers = [[NSMutableArray alloc] init];
     for (JRNavigationItemRoute *stackItemRoute in _stackItemRoutes){
         [stackItemRoute loadDestinationViewController];
-        [stackItemRoute setSourceViewController:[self sourceViewController]];
+        [stackItemRoute setSourceViewController:sender];
         UIViewController *destinationViewController = [stackItemRoute destinationViewController];
         [destinationViewControllers addObject:destinationViewController];
         [stackItemRoute prepareForRoute];

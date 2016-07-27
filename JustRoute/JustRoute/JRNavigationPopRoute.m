@@ -24,12 +24,12 @@
 
 @implementation JRNavigationPopRoute
 
-+ (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
-    return [[self alloc] initWithSourceViewController:sourceViewController destinationViewController:destinationViewController routeType:routeType];
++ (instancetype)routeWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
+    return [[self alloc] initWithDestinationViewController:destinationViewController routeType:routeType];
 }
 
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
-    self = [super initWithSourceViewController:sourceViewController];
+- (instancetype)initWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
+    self = [super init];
     if (self != nil){
         _destinationViewController = destinationViewController;
         _routeType = routeType;
@@ -37,8 +37,9 @@
     return self;
 }
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    UINavigationController *navigationController = [self navigationController];
+- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
+    UINavigationController *navigationController = [self extractNavigationController:sender];
+    [self setSourceViewController:sender];
     [self prepareForRoute];
     switch (_routeType) {
         case JRNavigationPopRouteTypeDefault:{
@@ -58,13 +59,13 @@
             break;
     }
     
-    
-    
+    [self setSourceViewController:nil];
+    [self setDestinationViewController:nil];
     if (completionBlock != NULL){
         completionBlock();
     }
     
-    [self setDestinationViewController:nil];
+    
     
 }
 

@@ -44,6 +44,7 @@
 
 - (void)unloadDestinationViewController{
     [self setDestinationViewController:nil];
+    [self setSourceViewController:nil];
 }
 
 @end

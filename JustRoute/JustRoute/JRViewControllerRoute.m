@@ -26,13 +26,12 @@
 @synthesize sourceViewController = _sourceViewController;
 @synthesize destinationViewController = _destinationViewController;
 
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
+- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
     
 }
 
 - (void)prepareForRoute{
-   
-    if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
+   if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
         [_delegate prepareForRoute:self];
     }
     

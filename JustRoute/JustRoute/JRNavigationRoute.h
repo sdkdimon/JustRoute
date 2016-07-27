@@ -24,8 +24,8 @@
 
 @interface JRNavigationRoute : JRViewControllerRoute
 
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController;
+//- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController;
 
-- (UINavigationController *)navigationController;
+- (UINavigationController *)extractNavigationController:(UIViewController *)viewController;
 
 @end

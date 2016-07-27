@@ -79,35 +79,35 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
     } else {
        [_entityStack addObject:entity];
     }
-    JRViewControllerRoute *route = [JRNavigationPushRoute routeWithSourceViewController:sender destinationViewControllerFactoryBlock:^UIViewController<JRViewControllerRouting> *{
+    JRViewControllerRoute *route = [JRNavigationPushRoute routeWithDestinationViewControllerFactoryBlock:^UIViewController<JRViewControllerRouting> *{
         return [[self mainStoryboard] instantiateViewControllerWithIdentifier:@"JRSPDetailViewController"];
     }];
     [route setTag:JRSPRouteTypePush];
     [route setDelegate:self];
     
-    [route routeAnimated:YES completion:nil];
+    [route route:sender animated:YES completion:nil];
 }
 - (void)popEntityWithSender:(UIViewController *)sender{
     if ([_entityStack count] > 0){
-        JRViewControllerRoute *route = [JRNavigationPopRoute routeWithSourceViewController:sender destinationViewController:nil routeType:JRNavigationPopRouteTypeDefault];
+        JRViewControllerRoute *route = [JRNavigationPopRoute routeWithDestinationViewController:nil routeType:JRNavigationPopRouteTypeDefault];
         [route setTag:JRSPRouteTypePop];
         [route setDelegate:self];
         
         NSUInteger lastEntityIdx = [_entityStack count] - 1;
         [_entityStack removeObjectAtIndex:lastEntityIdx];
         
-        [route routeAnimated:YES completion:nil];
+        [route route:sender animated:YES completion:nil];
     }
     
 }
 
 - (void)popToListOfEntitiesWithSender:(UIViewController *)sender{
     if ([_entityStack count] > 0){
-        JRViewControllerRoute *route = [JRNavigationPopRoute routeWithSourceViewController:sender destinationViewController:nil routeType:JRNavigationPopRouteTypeToRoot];
+        JRViewControllerRoute *route = [JRNavigationPopRoute routeWithDestinationViewController:nil routeType:JRNavigationPopRouteTypeToRoot];
         [route setTag:JRSPRouteTypePopToRoot];
         [route setDelegate:self];
         [_entityStack removeAllObjects];
-        [route routeAnimated:YES completion:nil];
+        [route route:sender animated:YES completion:nil];
     }
 }
 
