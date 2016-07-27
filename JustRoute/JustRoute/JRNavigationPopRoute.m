@@ -22,12 +22,6 @@
 
 #import "JRNavigationPopRoute.h"
 
-@interface JRNavigationPopRoute ()
-
-@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
-
-@end
-
 @implementation JRNavigationPopRoute
 
 + (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{

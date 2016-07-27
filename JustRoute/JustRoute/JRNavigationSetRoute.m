@@ -22,13 +22,6 @@
 
 #import "JRNavigationSetRoute.h"
 
-
-@interface JRNavigationSetRoute ()
-
-@property (strong, nonatomic, readwrite) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
-
-@end
-
 @implementation JRNavigationSetRoute
 
 + (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{

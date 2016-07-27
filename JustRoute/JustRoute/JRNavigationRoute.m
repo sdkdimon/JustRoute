@@ -28,7 +28,6 @@
     self = [super init];
     if (self != nil){
         _sourceViewController = sourceViewController;
-        NSAssert(sourceViewController != nil, @"Source view controller can not be nil");
     }
     return self;
 }

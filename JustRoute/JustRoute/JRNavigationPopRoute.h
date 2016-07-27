@@ -33,8 +33,7 @@ typedef enum {
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
 
-@property (strong, nonatomic, readonly) UIViewController *destinationViewController;
-@property (assign, nonatomic, readonly) JRNavigationPopRouteType routeType;
+@property (assign, nonatomic, readwrite) JRNavigationPopRouteType routeType;
 
 
 @end

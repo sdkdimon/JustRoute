@@ -23,17 +23,11 @@
 #import "JRViewControllerRoute.h"
 
 @implementation JRViewControllerRoute
+@synthesize sourceViewController = _sourceViewController;
+@synthesize destinationViewController = _destinationViewController;
 
 - (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
     
-}
-
-- (UIViewController *)sourceViewController{
-    return nil;
-}
-
-- (UIViewController *)destinationViewController{
-    return nil;
 }
 
 - (void)prepareForRoute{

@@ -28,9 +28,6 @@
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-@property (strong, nonatomic, readonly) UIViewController *destinationViewController;
-@property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
-
-
+@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 @end

@@ -22,12 +22,6 @@
 
 #import "JRNavigationItemRoute.h"
 
-@interface JRNavigationItemRoute ()
-
-@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
-
-@end
-
 @implementation JRNavigationItemRoute
 
 + (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{

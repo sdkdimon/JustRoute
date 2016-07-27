@@ -22,12 +22,6 @@
 
 #import "JRNavigationPushRoute.h"
 
-@interface JRNavigationPushRoute ()
-
-@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
-
-@end
-
 @implementation JRNavigationPushRoute
 
 + (instancetype)routeWithSourceViewController:(UIViewController *)sourceViewController destinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
@@ -47,7 +41,7 @@
 
     [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
     [self prepareForRoute];
-    [navigationController pushViewController:_destinationViewController animated:animated];
+    [navigationController pushViewController:[self destinationViewController] animated:animated];
     
     [self setDestinationViewController:nil];
     if (completionBlock != NULL){

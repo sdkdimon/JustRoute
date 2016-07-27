@@ -24,7 +24,11 @@
 #import "JRViewControllerRouting.h"
 #import "JRViewControllerFactoryBlock.h"
 
-@interface JRViewControllerRoute : NSObject
+@interface JRViewControllerRoute : NSObject{
+    @protected
+   __weak UIViewController *_sourceViewController;
+   __strong UIViewController *_destinationViewController;
+}
 
 @property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
@@ -33,8 +37,8 @@
 
 @property (weak, nonatomic, readwrite) id <JRViewControllerRouting> delegate;
 
-- (UIViewController *)sourceViewController;
-- (UIViewController *)destinationViewController;
+@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
+@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
 
 - (void)prepareForRoute;
 

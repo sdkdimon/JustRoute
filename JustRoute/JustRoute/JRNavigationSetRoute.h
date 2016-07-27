@@ -38,8 +38,8 @@ typedef enum {
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController stackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
 
-@property (strong, nonatomic, readonly) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
-@property (assign, nonatomic, readonly) JRNavigationSetRouteType routeType;
+@property (strong, nonatomic, readwrite) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
+@property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
 
 @property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
 

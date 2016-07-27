@@ -27,10 +27,8 @@
 + (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 - (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 
-@property (strong, nonatomic, readonly) UIViewController *destinationViewController;
-@property (strong, nonatomic, readonly) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
+@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 
 - (void)loadDestinationViewController;

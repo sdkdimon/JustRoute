@@ -26,8 +26,6 @@
 
 - (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController;
 
-@property (weak, nonatomic, readonly) UIViewController *sourceViewController;
-
 - (UINavigationController *)navigationController;
 
 @end
