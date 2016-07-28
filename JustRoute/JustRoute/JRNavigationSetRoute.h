@@ -21,7 +21,6 @@
 //  THE SOFTWARE.
 
 #import "JRNavigationRoute.h"
-#import "JRNavigationItemRoute.h"
 
 typedef enum {
     
@@ -34,11 +33,12 @@ typedef enum {
 
 @interface JRNavigationSetRoute : JRNavigationRoute
 
-+ (instancetype)routeWithStackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
++ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
 
-- (instancetype)initWithStackItemRoutes:(NSArray <JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType;
+- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
 
-@property (strong, nonatomic, readwrite) NSArray <JRNavigationItemRoute *> *stackItemRoutes;
+@property (strong, nonatomic, readwrite) NSArray <JRViewControllerFactoryBlock> *destinationViewControllerFactoryBlocks;
+
 @property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
 
 @property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);

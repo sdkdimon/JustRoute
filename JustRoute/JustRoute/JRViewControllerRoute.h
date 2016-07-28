@@ -26,19 +26,20 @@
 
 @interface JRViewControllerRoute : NSObject{
     @protected
-   __strong UIViewController *_sourceViewController;
-   __strong UIViewController *_destinationViewController;
+   __weak UIViewController *_sourceViewController;
+   __weak UIViewController *_destinationViewController;
 }
 
 @property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
 
+- (void)routeAnimated:(BOOL)animated completion:(void(^)())completionBlock;
 - (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
 
 @property (weak, nonatomic, readwrite) id <JRViewControllerRouting> delegate;
 
-@property (strong, nonatomic, readwrite) UIViewController *sourceViewController;
-@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
+@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
+@property (weak, nonatomic, readwrite) UIViewController *destinationViewController;
 
 - (void)prepareForRoute;
 

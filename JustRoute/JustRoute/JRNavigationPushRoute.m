@@ -41,7 +41,7 @@
     [self setSourceViewController:sender];
     [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
     [self prepareForRoute];
-    [navigationController pushViewController:[self destinationViewController] animated:animated];
+    [navigationController pushViewController:_destinationViewController animated:animated];
     
     [self setDestinationViewController:nil];
     [self setSourceViewController:nil];

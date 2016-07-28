@@ -26,6 +26,10 @@
 @synthesize sourceViewController = _sourceViewController;
 @synthesize destinationViewController = _destinationViewController;
 
+- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
+    [self route:_sourceViewController animated:animated completion:completionBlock];
+}
+
 - (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
     
 }
@@ -36,8 +40,5 @@
     }
     
 }
-
-
-
 
 @end

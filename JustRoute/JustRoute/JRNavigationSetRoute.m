@@ -24,14 +24,14 @@
 
 @implementation JRNavigationSetRoute
 
-+ (instancetype)routeWithStackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
-    return [[self alloc] initWithStackItemRoutes:stackItemRoutes routeType:routeType];
++ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray<JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType{
+    return [[self alloc] initWithDestinationViewControllerFactoryBlocks:destinationViewControllerFactoryBlocks routeType:routeType];
 }
 
-- (instancetype)initWithStackItemRoutes:(NSArray<JRNavigationItemRoute *> *)stackItemRoutes routeType:(JRNavigationSetRouteType)routeType{
+- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray<JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType{
     self = [super init];
     if (self != nil){
-        _stackItemRoutes = stackItemRoutes;
+        _destinationViewControllerFactoryBlocks = destinationViewControllerFactoryBlocks;
         _routeType = routeType;
     }
     return self;
@@ -39,14 +39,13 @@
 
 - (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
     UINavigationController *navigationController = [self extractNavigationController:sender];
-    
+    [self setSourceViewController:sender];
     NSMutableArray *destinationViewControllers = [[NSMutableArray alloc] init];
-    for (JRNavigationItemRoute *stackItemRoute in _stackItemRoutes){
-        [stackItemRoute loadDestinationViewController];
-        [stackItemRoute setSourceViewController:sender];
-        UIViewController *destinationViewController = [stackItemRoute destinationViewController];
+    for (JRViewControllerFactoryBlock destinationViewControllerFactoryBlock in _destinationViewControllerFactoryBlocks){
+        UIViewController *destinationViewController = destinationViewControllerFactoryBlock();
+        [self setDestinationViewController:destinationViewController];
         [destinationViewControllers addObject:destinationViewController];
-        [stackItemRoute prepareForRoute];
+        [self prepareForRoute];
     }
     
     switch (_routeType) {
@@ -79,10 +78,8 @@
             break;
     }
     
-    
-    for (JRNavigationItemRoute *stackItemRoute in _stackItemRoutes){
-        [stackItemRoute unloadDestinationViewController];
-    }
+    [self setSourceViewController:nil];
+    [self setDestinationViewController:nil];
         
         if (completionBlock != NULL){
             completionBlock();
