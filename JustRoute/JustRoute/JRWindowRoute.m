@@ -1,5 +1,5 @@
 //
-//  JRViewControllerDismissRoute.m
+//  JRWindowRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,16 +20,24 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerDismissRoute.h"
+#import "JRWindowRoute.h"
 
-@implementation JRViewControllerDismissRoute
+@interface JRWindowRoute ()
+@property (strong, nonatomic, readwrite) UIWindow *window;
+@end
 
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
-    NSAssert(sender != nil, @"Source view controller can not be nil");
-    [self setSourceViewController:sender];
-    [self prepareForRoute];
-    [sender dismissViewControllerAnimated:animated completion:completionBlock];
-    [self clear];
+@implementation JRWindowRoute
+
+- (void)show{
+    NSAssert(_windowFactoryBlock != nil, @"windowFactoryBlock can not be NULL");
+    
+    UIWindow *window = _windowFactoryBlock();
+    [window makeKeyAndVisible];
+    [self setWindow:window];
+}
+
+- (void)dismiss{
+    [self setWindow:nil];
 }
 
 @end
