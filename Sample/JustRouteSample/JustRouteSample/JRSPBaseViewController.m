@@ -55,7 +55,7 @@
     
 }
 
-- (void)prepareForRoute:(JRViewControllerRoute *)route{
+- (void)prepareForRoute:(JRRoute *)route{
     
 }
 

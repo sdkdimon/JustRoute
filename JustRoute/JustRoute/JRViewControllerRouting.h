@@ -21,10 +21,10 @@
 //  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-@class JRViewControllerRoute;
+@class JRRoute;
 
 @protocol JRViewControllerRouting <NSObject>
 
-- (void)prepareForRoute:(JRViewControllerRoute *)route;
+- (void)prepareForRoute:(JRRoute *)route;
 
 @end
