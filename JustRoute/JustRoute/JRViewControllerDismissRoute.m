@@ -15,7 +15,7 @@
     [self setSourceViewController:sender];
     [self prepareForRoute];
     [sender dismissViewControllerAnimated:animated completion:completionBlock];
-    [self setSourceViewController:nil];
+    [self clear];
 }
 
 @end

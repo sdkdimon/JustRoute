@@ -78,12 +78,11 @@
             break;
     }
     
-    [self setSourceViewController:nil];
-    [self setDestinationViewController:nil];
+    [self clear];
         
-        if (completionBlock != NULL){
-            completionBlock();
-        }
+    if (completionBlock != NULL){
+        completionBlock();
+    }
     
 }
 

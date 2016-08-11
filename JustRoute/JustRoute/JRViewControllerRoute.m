@@ -41,4 +41,10 @@
     
 }
 
+- (void)clear{
+    [self setSourceViewController:nil];
+    [self setDestinationViewController:nil];
+    [self setParams:nil];
+}
+
 @end

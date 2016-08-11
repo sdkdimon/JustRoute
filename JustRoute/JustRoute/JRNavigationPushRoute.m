@@ -43,8 +43,8 @@
     [self prepareForRoute];
     [navigationController pushViewController:_destinationViewController animated:animated];
     
-    [self setDestinationViewController:nil];
-    [self setSourceViewController:nil];
+    [self clear];
+    
     if (completionBlock != NULL){
         completionBlock();
     }

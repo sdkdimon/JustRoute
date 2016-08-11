@@ -32,6 +32,7 @@
 
 @property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
+@property (strong, nonatomic, readwrite) id params;
 
 - (void)routeAnimated:(BOOL)animated completion:(void(^)())completionBlock;
 - (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
@@ -42,5 +43,6 @@
 @property (weak, nonatomic, readwrite) UIViewController *destinationViewController;
 
 - (void)prepareForRoute;
+- (void)clear;
 
 @end

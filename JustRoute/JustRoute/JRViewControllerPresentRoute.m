@@ -16,8 +16,7 @@
     [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
     [self prepareForRoute];
     [sender presentViewController:_destinationViewController animated:animated completion:completionBlock];
-    [self setDestinationViewController:nil];
-    [self setSourceViewController:nil];
+    [self clear];
 }
 
 @end
