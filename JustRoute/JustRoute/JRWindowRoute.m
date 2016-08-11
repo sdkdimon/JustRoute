@@ -28,12 +28,14 @@
 
 @implementation JRWindowRoute
 
-- (void)show{
+- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
     NSAssert(_windowFactoryBlock != nil, @"windowFactoryBlock can not be NULL");
-    
     UIWindow *window = _windowFactoryBlock();
+    [self setDestinationViewController:[window rootViewController]];
+    [self prepareForRoute];
     [window makeKeyAndVisible];
     [self setWindow:window];
+    [self clear];
 }
 
 - (void)dismiss{

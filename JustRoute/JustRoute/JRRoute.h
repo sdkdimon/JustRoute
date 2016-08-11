@@ -1,6 +1,6 @@
 //
-//  JRWindowRoute.h
-///  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
+//  JRRoute.h
+//  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +19,33 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
-#import "JRRoute.h"
-#import "JRWindowFactoryBlock.h"
 
-@interface JRWindowRoute : JRRoute
+#import <UIKit/UIKit.h>
+#import "JRViewControllerRouting.h"
 
-@property (strong, nonatomic, readonly) UIWindow *window;
-@property (strong, nonatomic, readwrite) JRWindowFactoryBlock windowFactoryBlock;
+@interface JRRoute : NSObject{
+@protected
+    __weak UIViewController *_sourceViewController;
+    __weak UIViewController *_destinationViewController;
+}
 
-- (void)dismiss;
+@property (strong, nonatomic, readwrite) NSString *identifier;
+@property (assign, nonatomic, readwrite) NSInteger tag;
+@property (strong, nonatomic, readwrite) id params;
+
+- (void)route;
+- (void)routeAnimated:(BOOL)animated completion:(void(^)())completionBlock;
+- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
+
+@property (weak, nonatomic, readwrite) id <JRViewControllerRouting> delegate;
+
+@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
+@property (weak, nonatomic, readwrite) UIViewController *destinationViewController;
+
+- (void)prepareForRoute;
+- (void)clear;
+
+
+
 
 @end

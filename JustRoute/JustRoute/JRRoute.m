@@ -1,6 +1,6 @@
 //
-//  JRWindowRoute.h
-///  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
+//  JRRoute.m
+//  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +19,35 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+
 #import "JRRoute.h"
-#import "JRWindowFactoryBlock.h"
 
-@interface JRWindowRoute : JRRoute
+@implementation JRRoute
+@synthesize sourceViewController = _sourceViewController;
+@synthesize destinationViewController = _destinationViewController;
 
-@property (strong, nonatomic, readonly) UIWindow *window;
-@property (strong, nonatomic, readwrite) JRWindowFactoryBlock windowFactoryBlock;
+- (void)route{
+    [self routeAnimated:NO completion:nil];
+}
 
-- (void)dismiss;
+- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
+    [self route:_sourceViewController animated:animated completion:completionBlock];
+}
 
+- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
+    
+}
+
+- (void)prepareForRoute{
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
+        [_delegate prepareForRoute:self];
+    }
+    
+}
+
+- (void)clear{
+    [self setSourceViewController:nil];
+    [self setDestinationViewController:nil];
+    [self setParams:nil];
+}
 @end

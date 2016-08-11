@@ -20,29 +20,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-#import "JRViewControllerRouting.h"
+#import "JRRoute.h"
 #import "JRViewControllerFactoryBlock.h"
 
-@interface JRViewControllerRoute : NSObject{
-    @protected
-   __weak UIViewController *_sourceViewController;
-   __weak UIViewController *_destinationViewController;
-}
-
-@property (strong, nonatomic, readwrite) NSString *identifier;
-@property (assign, nonatomic, readwrite) NSInteger tag;
-@property (strong, nonatomic, readwrite) id params;
-
-- (void)routeAnimated:(BOOL)animated completion:(void(^)())completionBlock;
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
-
-@property (weak, nonatomic, readwrite) id <JRViewControllerRouting> delegate;
-
-@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
-@property (weak, nonatomic, readwrite) UIViewController *destinationViewController;
-
-- (void)prepareForRoute;
-- (void)clear;
+@interface JRViewControllerRoute : JRRoute
 
 @end

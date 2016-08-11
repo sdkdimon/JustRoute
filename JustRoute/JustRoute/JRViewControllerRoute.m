@@ -23,28 +23,5 @@
 #import "JRViewControllerRoute.h"
 
 @implementation JRViewControllerRoute
-@synthesize sourceViewController = _sourceViewController;
-@synthesize destinationViewController = _destinationViewController;
-
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    [self route:_sourceViewController animated:animated completion:completionBlock];
-}
-
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
-    
-}
-
-- (void)prepareForRoute{
-   if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
-        [_delegate prepareForRoute:self];
-    }
-    
-}
-
-- (void)clear{
-    [self setSourceViewController:nil];
-    [self setDestinationViewController:nil];
-    [self setParams:nil];
-}
 
 @end
