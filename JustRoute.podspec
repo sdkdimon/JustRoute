@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     SPEC_WINDOW_ROOT =  SRC_ROOT + 'Window/'
     
     s.name             = 'JustRoute'
-    s.version          = '0.0.1'
+    s.version          = '0.1.0'
     s.summary          = 'iOS ViewController routing lib'
     s.homepage         = 'https://github.com/sdkdimon/JustRoute'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
