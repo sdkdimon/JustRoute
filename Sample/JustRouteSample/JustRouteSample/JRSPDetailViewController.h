@@ -23,12 +23,12 @@
 #import "JRSPBaseViewController.h"
 #import "JRSPDetailViewControllerInput.h"
 
-@class JRViewControllerRoute;
+@class JRRoute;
 
 @interface JRSPDetailViewController : JRSPBaseViewController <JRSPDetailViewControllerInput>
 
 
-@property (strong, nonatomic, readwrite) JRViewControllerRoute *popRoute;
+@property (strong, nonatomic, readwrite) JRRoute *popRoute;
 
 
 @end

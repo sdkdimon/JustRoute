@@ -21,9 +21,11 @@
 //  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "JRViewControllerRouting.h"
+#import "JRRouting.h"
 
-@interface JRRoute : NSObject{
+@protocol JRRouteDelegate;
+
+@interface JRRoute : NSObject <JRRouting>{
 @protected
     __weak UIViewController *_sourceViewController;
     __weak UIViewController *_destinationViewController;
@@ -33,11 +35,10 @@
 @property (assign, nonatomic, readwrite) NSInteger tag;
 @property (strong, nonatomic, readwrite) id params;
 
-- (void)route;
-- (void)routeAnimated:(BOOL)animated completion:(void(^)())completionBlock;
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
+- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
 
-@property (weak, nonatomic, readwrite) id <JRViewControllerRouting> delegate;
+@property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
 
 @property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (weak, nonatomic, readwrite) UIViewController *destinationViewController;

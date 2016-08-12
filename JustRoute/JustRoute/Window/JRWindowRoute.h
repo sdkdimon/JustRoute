@@ -1,5 +1,5 @@
 //
-//  JRNavigationRoute.m
+//  JRWindowRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,23 +19,13 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+#import "JRRoute.h"
+#import "JRWindowFactoryBlock.h"
+#import "JRReversibleRouting.h"
 
-#import "JRNavigationRoute.h"
+@interface JRWindowRoute : JRRoute <JRReversibleRouting>
 
-@implementation JRNavigationRoute
-
-- (instancetype)initWithSourceViewController:(UIViewController *)sourceViewController{
-    self = [super init];
-    if (self != nil){
-        _sourceViewController = sourceViewController;
-    }
-    return self;
-}
-
-- (UINavigationController *)extractNavigationController:(UIViewController *)viewController{
-    UINavigationController *navigationController = [viewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)viewController : [viewController navigationController];
-    NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
-    return navigationController;
-}
+@property (strong, nonatomic, readonly) UIWindow *window;
+@property (strong, nonatomic, readwrite) JRWindowFactoryBlock windowFactoryBlock;
 
 @end

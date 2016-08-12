@@ -23,7 +23,7 @@
 #import "JRSPMainViewController.h"
 #import "JRSPEntity.h"
 #import "JRSPDetailViewControllerInput.h"
-#import <JustRoute/JRViewControllerRoute.h>
+#import <JustRoute/JRRoute.h>
 
 #import "JRSPRouter.h"
 

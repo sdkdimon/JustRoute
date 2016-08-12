@@ -1,5 +1,5 @@
 //
-//  JRViewControllerPresentRoute.m
+//  JRNavigationSetRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,17 +20,28 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRViewControllerPresentRoute.h"
+#import "JRNavigationRoute.h"
+#import "JRViewControllerFactoryBlock.h"
 
-@implementation JRViewControllerPresentRoute
+typedef enum {
+    
+    JRNavigationSetRouteTypeReplace = 0,
+    JRNavigationSetRouteTypeAppend,
+    JRNavigationSetRouteTypeInsert,
+    JRNavigationSetRouteTypeCustom
+    
+}JRNavigationSetRouteType;
 
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
-    NSAssert(sender != nil, @"Source view controller can not be nil");
-    [self setSourceViewController:sender];
-    [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
-    [self prepareForRoute];
-    [sender presentViewController:_destinationViewController animated:animated completion:completionBlock];
-    [self clear];
-}
+@interface JRNavigationSetRoute : JRNavigationRoute
+
++ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
+
+- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
+
+@property (strong, nonatomic, readwrite) NSArray <JRViewControllerFactoryBlock> *destinationViewControllerFactoryBlocks;
+
+@property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
+
+@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
 
 @end

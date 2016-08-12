@@ -1,5 +1,5 @@
 //
-//  JRNavigationSetRoute.h
+//  JRNavigationPushRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,26 +21,14 @@
 //  THE SOFTWARE.
 
 #import "JRNavigationRoute.h"
+#import "JRViewControllerFactoryBlock.h"
 
-typedef enum {
-    
-    JRNavigationSetRouteTypeReplace = 0,
-    JRNavigationSetRouteTypeAppend,
-    JRNavigationSetRouteTypeInsert,
-    JRNavigationSetRouteTypeCustom
-    
-}JRNavigationSetRouteType;
+@interface JRNavigationPushRoute : JRNavigationRoute
 
-@interface JRNavigationSetRoute : JRNavigationRoute
++ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-+ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
+- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
 
-- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
-
-@property (strong, nonatomic, readwrite) NSArray <JRViewControllerFactoryBlock> *destinationViewControllerFactoryBlocks;
-
-@property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
-
-@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
+@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 @end

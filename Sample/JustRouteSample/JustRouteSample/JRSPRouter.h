@@ -22,7 +22,7 @@
 
 #import <UIKit/UIKit.h>
 @class JRSPEntity;
-@class JRViewControllerRoute;
+@class JRRoute;
 
 @interface JRSPRouter : NSObject
 

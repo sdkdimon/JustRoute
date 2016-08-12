@@ -1,5 +1,5 @@
 //
-//  JRWindowRoute.m
+//  JRNavigationRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,27 +20,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRWindowRoute.h"
+#import "JRNavigationRoute.h"
 
-@interface JRWindowRoute ()
-@property (strong, nonatomic, readwrite) UIWindow *window;
-@end
+@implementation JRNavigationRoute
 
-@implementation JRWindowRoute
-
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
-    NSAssert(_windowFactoryBlock != nil, @"windowFactoryBlock can not be NULL");
-    UIWindow *window = _windowFactoryBlock();
-    [self setSourceViewController:sender];
-    [self setDestinationViewController:[window rootViewController]];
-    [self prepareForRoute];
-    [window makeKeyAndVisible];
-    [self setWindow:window];
-    [self clear];
-}
-
-- (void)dismiss{
-    [self setWindow:nil];
+- (UINavigationController *)extractNavigationController:(UIViewController *)viewController{
+    UINavigationController *navigationController = [viewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)viewController : [viewController navigationController];
+    NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
+    return navigationController;
 }
 
 @end

@@ -21,20 +21,13 @@
 //  THE SOFTWARE.
 
 #import "JRRoute.h"
+#import "JRRouteDelegate.h"
 
 @implementation JRRoute
 @synthesize sourceViewController = _sourceViewController;
 @synthesize destinationViewController = _destinationViewController;
 
-- (void)route{
-    [self routeAnimated:NO completion:nil];
-}
-
-- (void)routeAnimated:(BOOL)animated completion:(void (^)())completionBlock{
-    [self route:_sourceViewController animated:animated completion:completionBlock];
-}
-
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
     
 }
 
@@ -42,7 +35,6 @@
     if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
         [_delegate prepareForRoute:self];
     }
-    
 }
 
 - (void)clear{

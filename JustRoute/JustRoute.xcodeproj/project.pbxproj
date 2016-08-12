@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A2B60161D45FC1700E0D745 /* JRNavigationPopRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AFFA29C1D451AC300292399 /* JRNavigationPopRoute.h */; };
-		8A444D9E1D43DD7300E5E429 /* JRViewControllerRouting.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F15D1D3FD98F006CBA9A /* JRViewControllerRouting.h */; };
-		8A444D9F1D43DD7300E5E429 /* JRViewControllerRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F15F1D3FD98F006CBA9A /* JRViewControllerRoute.h */; };
-		8A444DA01D43DD7300E5E429 /* JRViewControllerFactoryBlock.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F1601D3FD98F006CBA9A /* JRViewControllerFactoryBlock.h */; };
-		8A444DA11D43DD7300E5E429 /* JRNavigationSetRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F1621D3FD98F006CBA9A /* JRNavigationSetRoute.h */; };
-		8A444DA31D43DD7300E5E429 /* JRNavigationPushRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB8F1661D3FD98F006CBA9A /* JRNavigationPushRoute.h */; };
-		8AB5EA491D5B6C2600B43577 /* JRViewControllerPresentRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5EA481D5B6C2600B43577 /* JRViewControllerPresentRoute.m */; };
-		8AB5EA4C1D5B6D1B00B43577 /* JRViewControllerDismissRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5EA4B1D5B6D1B00B43577 /* JRViewControllerDismissRoute.m */; };
-		8AB8F1671D3FD98F006CBA9A /* JRViewControllerRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F15E1D3FD98F006CBA9A /* JRViewControllerRoute.m */; };
-		8AB8F1681D3FD98F006CBA9A /* JRNavigationSetRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F1611D3FD98F006CBA9A /* JRNavigationSetRoute.m */; };
-		8AB8F16A1D3FD98F006CBA9A /* JRNavigationPushRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F1651D3FD98F006CBA9A /* JRNavigationPushRoute.m */; };
-		8ACEA53A1D5C8A9D00F829E1 /* JRWindowRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEA5391D5C8A9D00F829E1 /* JRWindowRoute.m */; };
-		8ACEA53E1D5CAD8F00F829E1 /* JRRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEA53D1D5CAD8F00F829E1 /* JRRoute.m */; };
-		8ACEA53F1D5CAF3800F829E1 /* JRViewControllerPresentRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB5EA471D5B6C2600B43577 /* JRViewControllerPresentRoute.h */; };
-		8ACEA5401D5CAF3800F829E1 /* JRViewControllerDismissRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AB5EA4A1D5B6D1B00B43577 /* JRViewControllerDismissRoute.h */; };
-		8ACEA5411D5CAF3800F829E1 /* JRWindowRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ACEA5381D5C8A9D00F829E1 /* JRWindowRoute.h */; };
-		8ACEA5421D5CAF3800F829E1 /* JRWindowFactoryBlock.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ACEA53B1D5C8B1000F829E1 /* JRWindowFactoryBlock.h */; };
-		8ACEA5431D5CAF3800F829E1 /* JRRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ACEA53C1D5CAD8F00F829E1 /* JRRoute.h */; };
-		8AEB5CA01D47975F00E53D05 /* JRNavigationRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB5C9F1D47975F00E53D05 /* JRNavigationRoute.m */; };
-		8AEB5CA11D47991600E53D05 /* JRNavigationRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AEB5C9E1D47975F00E53D05 /* JRNavigationRoute.h */; };
-		8AFFA29E1D451AC300292399 /* JRNavigationPopRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFFA29D1D451AC300292399 /* JRNavigationPopRoute.m */; };
+		8A72260A1D5DC736003656C1 /* JRWindowRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7225F41D5DC736003656C1 /* JRWindowRoute.m */; };
+		8A72260B1D5DC736003656C1 /* JRViewControllerDismissRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7225F71D5DC736003656C1 /* JRViewControllerDismissRoute.m */; };
+		8A72260C1D5DC736003656C1 /* JRViewControllerPresentRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7225F91D5DC736003656C1 /* JRViewControllerPresentRoute.m */; };
+		8A72260D1D5DC736003656C1 /* JRNavigationPopRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7225FC1D5DC736003656C1 /* JRNavigationPopRoute.m */; };
+		8A72260E1D5DC736003656C1 /* JRNavigationPushRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7225FE1D5DC736003656C1 /* JRNavigationPushRoute.m */; };
+		8A72260F1D5DC736003656C1 /* JRNavigationRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7226001D5DC736003656C1 /* JRNavigationRoute.m */; };
+		8A7226101D5DC736003656C1 /* JRNavigationSetRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7226021D5DC736003656C1 /* JRNavigationSetRoute.m */; };
+		8A7226121D5DC736003656C1 /* JRRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7226081D5DC736003656C1 /* JRRoute.m */; };
+		8A7226131D5DC83B003656C1 /* JRWindowRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7225F31D5DC736003656C1 /* JRWindowRoute.h */; };
+		8A7226141D5DC83B003656C1 /* JRViewControllerDismissRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7225F61D5DC736003656C1 /* JRViewControllerDismissRoute.h */; };
+		8A7226151D5DC83B003656C1 /* JRViewControllerPresentRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7225F81D5DC736003656C1 /* JRViewControllerPresentRoute.h */; };
+		8A7226161D5DC83B003656C1 /* JRNavigationPopRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7225FB1D5DC736003656C1 /* JRNavigationPopRoute.h */; };
+		8A7226171D5DC83B003656C1 /* JRNavigationPushRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7225FD1D5DC736003656C1 /* JRNavigationPushRoute.h */; };
+		8A7226181D5DC83B003656C1 /* JRNavigationRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7225FF1D5DC736003656C1 /* JRNavigationRoute.h */; };
+		8A7226191D5DC83B003656C1 /* JRNavigationSetRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226011D5DC736003656C1 /* JRNavigationSetRoute.h */; };
+		8A72261A1D5DC83B003656C1 /* JRWindowFactoryBlock.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226031D5DC736003656C1 /* JRWindowFactoryBlock.h */; };
+		8A72261B1D5DC83B003656C1 /* JRViewControllerFactoryBlock.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226071D5DC736003656C1 /* JRViewControllerFactoryBlock.h */; };
+		8A72261C1D5DC83B003656C1 /* JRRouting.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226041D5DC736003656C1 /* JRRouting.h */; };
+		8A72261D1D5DC83B003656C1 /* JRRoute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226091D5DC736003656C1 /* JRRoute.h */; };
+		8A7226231D5DCE59003656C1 /* JRRouteDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226211D5DCC95003656C1 /* JRRouteDelegate.h */; };
+		8A7226261D5DD242003656C1 /* JRReversibleRouting.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7226251D5DCF5E003656C1 /* JRReversibleRouting.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,46 +37,47 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				8ACEA53F1D5CAF3800F829E1 /* JRViewControllerPresentRoute.h in CopyFiles */,
-				8ACEA5401D5CAF3800F829E1 /* JRViewControllerDismissRoute.h in CopyFiles */,
-				8ACEA5411D5CAF3800F829E1 /* JRWindowRoute.h in CopyFiles */,
-				8ACEA5421D5CAF3800F829E1 /* JRWindowFactoryBlock.h in CopyFiles */,
-				8ACEA5431D5CAF3800F829E1 /* JRRoute.h in CopyFiles */,
-				8AEB5CA11D47991600E53D05 /* JRNavigationRoute.h in CopyFiles */,
-				8A2B60161D45FC1700E0D745 /* JRNavigationPopRoute.h in CopyFiles */,
-				8A444D9E1D43DD7300E5E429 /* JRViewControllerRouting.h in CopyFiles */,
-				8A444D9F1D43DD7300E5E429 /* JRViewControllerRoute.h in CopyFiles */,
-				8A444DA01D43DD7300E5E429 /* JRViewControllerFactoryBlock.h in CopyFiles */,
-				8A444DA11D43DD7300E5E429 /* JRNavigationSetRoute.h in CopyFiles */,
-				8A444DA31D43DD7300E5E429 /* JRNavigationPushRoute.h in CopyFiles */,
+				8A7226261D5DD242003656C1 /* JRReversibleRouting.h in CopyFiles */,
+				8A7226231D5DCE59003656C1 /* JRRouteDelegate.h in CopyFiles */,
+				8A7226131D5DC83B003656C1 /* JRWindowRoute.h in CopyFiles */,
+				8A7226141D5DC83B003656C1 /* JRViewControllerDismissRoute.h in CopyFiles */,
+				8A7226151D5DC83B003656C1 /* JRViewControllerPresentRoute.h in CopyFiles */,
+				8A7226161D5DC83B003656C1 /* JRNavigationPopRoute.h in CopyFiles */,
+				8A7226171D5DC83B003656C1 /* JRNavigationPushRoute.h in CopyFiles */,
+				8A7226181D5DC83B003656C1 /* JRNavigationRoute.h in CopyFiles */,
+				8A7226191D5DC83B003656C1 /* JRNavigationSetRoute.h in CopyFiles */,
+				8A72261A1D5DC83B003656C1 /* JRWindowFactoryBlock.h in CopyFiles */,
+				8A72261B1D5DC83B003656C1 /* JRViewControllerFactoryBlock.h in CopyFiles */,
+				8A72261C1D5DC83B003656C1 /* JRRouting.h in CopyFiles */,
+				8A72261D1D5DC83B003656C1 /* JRRoute.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8AB5EA471D5B6C2600B43577 /* JRViewControllerPresentRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerPresentRoute.h; sourceTree = "<group>"; };
-		8AB5EA481D5B6C2600B43577 /* JRViewControllerPresentRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerPresentRoute.m; sourceTree = "<group>"; };
-		8AB5EA4A1D5B6D1B00B43577 /* JRViewControllerDismissRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerDismissRoute.h; sourceTree = "<group>"; };
-		8AB5EA4B1D5B6D1B00B43577 /* JRViewControllerDismissRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerDismissRoute.m; sourceTree = "<group>"; };
+		8A7225F31D5DC736003656C1 /* JRWindowRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWindowRoute.h; sourceTree = "<group>"; };
+		8A7225F41D5DC736003656C1 /* JRWindowRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWindowRoute.m; sourceTree = "<group>"; };
+		8A7225F61D5DC736003656C1 /* JRViewControllerDismissRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerDismissRoute.h; sourceTree = "<group>"; };
+		8A7225F71D5DC736003656C1 /* JRViewControllerDismissRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerDismissRoute.m; sourceTree = "<group>"; };
+		8A7225F81D5DC736003656C1 /* JRViewControllerPresentRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerPresentRoute.h; sourceTree = "<group>"; };
+		8A7225F91D5DC736003656C1 /* JRViewControllerPresentRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerPresentRoute.m; sourceTree = "<group>"; };
+		8A7225FB1D5DC736003656C1 /* JRNavigationPopRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationPopRoute.h; sourceTree = "<group>"; };
+		8A7225FC1D5DC736003656C1 /* JRNavigationPopRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationPopRoute.m; sourceTree = "<group>"; };
+		8A7225FD1D5DC736003656C1 /* JRNavigationPushRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationPushRoute.h; sourceTree = "<group>"; };
+		8A7225FE1D5DC736003656C1 /* JRNavigationPushRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationPushRoute.m; sourceTree = "<group>"; };
+		8A7225FF1D5DC736003656C1 /* JRNavigationRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationRoute.h; sourceTree = "<group>"; };
+		8A7226001D5DC736003656C1 /* JRNavigationRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationRoute.m; sourceTree = "<group>"; };
+		8A7226011D5DC736003656C1 /* JRNavigationSetRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationSetRoute.h; sourceTree = "<group>"; };
+		8A7226021D5DC736003656C1 /* JRNavigationSetRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationSetRoute.m; sourceTree = "<group>"; };
+		8A7226031D5DC736003656C1 /* JRWindowFactoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWindowFactoryBlock.h; sourceTree = "<group>"; };
+		8A7226041D5DC736003656C1 /* JRRouting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRouting.h; sourceTree = "<group>"; };
+		8A7226071D5DC736003656C1 /* JRViewControllerFactoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerFactoryBlock.h; sourceTree = "<group>"; };
+		8A7226081D5DC736003656C1 /* JRRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRRoute.m; sourceTree = "<group>"; };
+		8A7226091D5DC736003656C1 /* JRRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRoute.h; sourceTree = "<group>"; };
+		8A7226211D5DCC95003656C1 /* JRRouteDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRouteDelegate.h; sourceTree = "<group>"; };
+		8A7226251D5DCF5E003656C1 /* JRReversibleRouting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRReversibleRouting.h; sourceTree = "<group>"; };
 		8AB8F1511D3FD930006CBA9A /* libJustRoute.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJustRoute.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AB8F15D1D3FD98F006CBA9A /* JRViewControllerRouting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerRouting.h; sourceTree = "<group>"; };
-		8AB8F15E1D3FD98F006CBA9A /* JRViewControllerRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerRoute.m; sourceTree = "<group>"; };
-		8AB8F15F1D3FD98F006CBA9A /* JRViewControllerRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerRoute.h; sourceTree = "<group>"; };
-		8AB8F1601D3FD98F006CBA9A /* JRViewControllerFactoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerFactoryBlock.h; sourceTree = "<group>"; };
-		8AB8F1611D3FD98F006CBA9A /* JRNavigationSetRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationSetRoute.m; sourceTree = "<group>"; };
-		8AB8F1621D3FD98F006CBA9A /* JRNavigationSetRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationSetRoute.h; sourceTree = "<group>"; };
-		8AB8F1651D3FD98F006CBA9A /* JRNavigationPushRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationPushRoute.m; sourceTree = "<group>"; };
-		8AB8F1661D3FD98F006CBA9A /* JRNavigationPushRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationPushRoute.h; sourceTree = "<group>"; };
-		8ACEA5381D5C8A9D00F829E1 /* JRWindowRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWindowRoute.h; sourceTree = "<group>"; };
-		8ACEA5391D5C8A9D00F829E1 /* JRWindowRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWindowRoute.m; sourceTree = "<group>"; };
-		8ACEA53B1D5C8B1000F829E1 /* JRWindowFactoryBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRWindowFactoryBlock.h; sourceTree = "<group>"; };
-		8ACEA53C1D5CAD8F00F829E1 /* JRRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRoute.h; sourceTree = "<group>"; };
-		8ACEA53D1D5CAD8F00F829E1 /* JRRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRRoute.m; sourceTree = "<group>"; };
-		8AEB5C9E1D47975F00E53D05 /* JRNavigationRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationRoute.h; sourceTree = "<group>"; };
-		8AEB5C9F1D47975F00E53D05 /* JRNavigationRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationRoute.m; sourceTree = "<group>"; };
-		8AFFA29C1D451AC300292399 /* JRNavigationPopRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationPopRoute.h; sourceTree = "<group>"; };
-		8AFFA29D1D451AC300292399 /* JRNavigationPopRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationPopRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A7225F21D5DC736003656C1 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				8A7225F31D5DC736003656C1 /* JRWindowRoute.h */,
+				8A7225F41D5DC736003656C1 /* JRWindowRoute.m */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		8A7225F51D5DC736003656C1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8A7225F61D5DC736003656C1 /* JRViewControllerDismissRoute.h */,
+				8A7225F71D5DC736003656C1 /* JRViewControllerDismissRoute.m */,
+				8A7225F81D5DC736003656C1 /* JRViewControllerPresentRoute.h */,
+				8A7225F91D5DC736003656C1 /* JRViewControllerPresentRoute.m */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8A7225FA1D5DC736003656C1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				8A7225FB1D5DC736003656C1 /* JRNavigationPopRoute.h */,
+				8A7225FC1D5DC736003656C1 /* JRNavigationPopRoute.m */,
+				8A7225FD1D5DC736003656C1 /* JRNavigationPushRoute.h */,
+				8A7225FE1D5DC736003656C1 /* JRNavigationPushRoute.m */,
+				8A7225FF1D5DC736003656C1 /* JRNavigationRoute.h */,
+				8A7226001D5DC736003656C1 /* JRNavigationRoute.m */,
+				8A7226011D5DC736003656C1 /* JRNavigationSetRoute.h */,
+				8A7226021D5DC736003656C1 /* JRNavigationSetRoute.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		8AB8F1481D3FD930006CBA9A = {
 			isa = PBXGroup;
 			children = (
@@ -109,27 +145,16 @@
 		8AB8F1531D3FD930006CBA9A /* JustRoute */ = {
 			isa = PBXGroup;
 			children = (
-				8AB8F15D1D3FD98F006CBA9A /* JRViewControllerRouting.h */,
-				8AB8F15F1D3FD98F006CBA9A /* JRViewControllerRoute.h */,
-				8AB8F15E1D3FD98F006CBA9A /* JRViewControllerRoute.m */,
-				8AB8F1601D3FD98F006CBA9A /* JRViewControllerFactoryBlock.h */,
-				8AB8F1621D3FD98F006CBA9A /* JRNavigationSetRoute.h */,
-				8AB8F1611D3FD98F006CBA9A /* JRNavigationSetRoute.m */,
-				8AB8F1661D3FD98F006CBA9A /* JRNavigationPushRoute.h */,
-				8AB8F1651D3FD98F006CBA9A /* JRNavigationPushRoute.m */,
-				8AFFA29C1D451AC300292399 /* JRNavigationPopRoute.h */,
-				8AFFA29D1D451AC300292399 /* JRNavigationPopRoute.m */,
-				8AEB5C9E1D47975F00E53D05 /* JRNavigationRoute.h */,
-				8AEB5C9F1D47975F00E53D05 /* JRNavigationRoute.m */,
-				8AB5EA471D5B6C2600B43577 /* JRViewControllerPresentRoute.h */,
-				8AB5EA481D5B6C2600B43577 /* JRViewControllerPresentRoute.m */,
-				8AB5EA4A1D5B6D1B00B43577 /* JRViewControllerDismissRoute.h */,
-				8AB5EA4B1D5B6D1B00B43577 /* JRViewControllerDismissRoute.m */,
-				8ACEA5381D5C8A9D00F829E1 /* JRWindowRoute.h */,
-				8ACEA5391D5C8A9D00F829E1 /* JRWindowRoute.m */,
-				8ACEA53B1D5C8B1000F829E1 /* JRWindowFactoryBlock.h */,
-				8ACEA53C1D5CAD8F00F829E1 /* JRRoute.h */,
-				8ACEA53D1D5CAD8F00F829E1 /* JRRoute.m */,
+				8A7225F21D5DC736003656C1 /* Window */,
+				8A7225F51D5DC736003656C1 /* Presentation */,
+				8A7225FA1D5DC736003656C1 /* Navigation */,
+				8A7226211D5DCC95003656C1 /* JRRouteDelegate.h */,
+				8A7226031D5DC736003656C1 /* JRWindowFactoryBlock.h */,
+				8A7226071D5DC736003656C1 /* JRViewControllerFactoryBlock.h */,
+				8A7226041D5DC736003656C1 /* JRRouting.h */,
+				8A7226251D5DCF5E003656C1 /* JRReversibleRouting.h */,
+				8A7226091D5DC736003656C1 /* JRRoute.h */,
+				8A7226081D5DC736003656C1 /* JRRoute.m */,
 			);
 			path = JustRoute;
 			sourceTree = "<group>";
@@ -190,15 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ACEA53E1D5CAD8F00F829E1 /* JRRoute.m in Sources */,
-				8AB8F1681D3FD98F006CBA9A /* JRNavigationSetRoute.m in Sources */,
-				8AEB5CA01D47975F00E53D05 /* JRNavigationRoute.m in Sources */,
-				8AB5EA491D5B6C2600B43577 /* JRViewControllerPresentRoute.m in Sources */,
-				8AB8F16A1D3FD98F006CBA9A /* JRNavigationPushRoute.m in Sources */,
-				8AB8F1671D3FD98F006CBA9A /* JRViewControllerRoute.m in Sources */,
-				8ACEA53A1D5C8A9D00F829E1 /* JRWindowRoute.m in Sources */,
-				8AFFA29E1D451AC300292399 /* JRNavigationPopRoute.m in Sources */,
-				8AB5EA4C1D5B6D1B00B43577 /* JRViewControllerDismissRoute.m in Sources */,
+				8A72260A1D5DC736003656C1 /* JRWindowRoute.m in Sources */,
+				8A72260F1D5DC736003656C1 /* JRNavigationRoute.m in Sources */,
+				8A7226121D5DC736003656C1 /* JRRoute.m in Sources */,
+				8A72260E1D5DC736003656C1 /* JRNavigationPushRoute.m in Sources */,
+				8A72260B1D5DC736003656C1 /* JRViewControllerDismissRoute.m in Sources */,
+				8A72260C1D5DC736003656C1 /* JRViewControllerPresentRoute.m in Sources */,
+				8A72260D1D5DC736003656C1 /* JRNavigationPopRoute.m in Sources */,
+				8A7226101D5DC736003656C1 /* JRNavigationSetRoute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

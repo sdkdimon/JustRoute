@@ -1,5 +1,5 @@
 //
-//  JRViewControllerRouting.h
+//  JRViewControllerPresentRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,11 +20,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-@class JRRoute;
+#import "JRViewControllerPresentRoute.h"
 
-@protocol JRViewControllerRouting <NSObject>
+@implementation JRViewControllerPresentRoute
 
-- (void)prepareForRoute:(JRRoute *)route;
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
+    NSAssert(sender != nil, @"Source view controller can not be nil");
+    [self setSourceViewController:sender];
+    [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
+    [self prepareForRoute];
+    [sender presentViewController:_destinationViewController animated:animated completion:completionBlock];
+    [self clear];
+}
 
 @end

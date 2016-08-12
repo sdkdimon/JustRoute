@@ -14,5 +14,21 @@ Pod::Spec.new do |s|
   s.module_name = 'JustRoute'
   s.source_files = 'JustRoute/JustRoute/*.{h,m}'
   s.public_header_files = 'JustRoute/JustRoute/*.h'
-
+  #s.default_subspecs = 'Navigation'
+  
+  s.subspec 'Navigation' do |navigation|
+    navigation.source_files = 'Navigation/*.{h,m}'
+    #navigation.public_header_files = 'JustRoute/JustRoute/Navigation/*.h'
+  end
+#  
+#  s.subspec 'Presentation' do |presentation|
+#    presentation.source_files = 'JustRoute/JustRoute/Presentation/*.{h,m}'
+#    presentation.public_header_files = 'JustRoute/JustRoute/Presentation/*.h'
+#  end
+#  
+#  s.subspec 'Window' do |window|
+#    window.source_files = 'JustRoute/JustRoute/Window/*.{h,m}'
+#    window.public_header_files = 'JustRoute/JustRoute/Window/*.h'
+#  end
+  
 end
