@@ -21,7 +21,7 @@
 //  THE SOFTWARE.
 
 #import "JRNavigationRoute.h"
-#import "JRViewControllerFactoryBlock.h"
+#import "JustRoute/JRViewControllerFactoryBlock.h"
 
 @interface JRNavigationPushRoute : JRNavigationRoute
 
