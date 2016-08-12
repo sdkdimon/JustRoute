@@ -36,7 +36,6 @@
 @property (strong, nonatomic, readwrite) id params;
 
 - (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
-- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
 
 @property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
 
