@@ -21,7 +21,7 @@
 //  THE SOFTWARE.
 
 #import "JRSPRouter.h"
-#import <JustRoute/JRViewControllerRouting.h>
+#import <JustRoute/JRRouteDelegate.h>
 #import <JustRoute/JRNavigationPushRoute.h>
 #import <JustRoute/JRNavigationPopRoute.h>
 #import "JRSPDetailViewControllerInput.h"
@@ -37,7 +37,7 @@ typedef enum {
 
 static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
 
-@interface JRSPRouter () <JRViewControllerRouting>
+@interface JRSPRouter () <JRRouteDelegate>
 
 @property (strong, nonatomic, readwrite) NSMutableArray *entityStack;
 @property (strong, nonatomic, readwrite) UIStoryboard *mainStoryboard;
@@ -79,7 +79,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
     } else {
        [_entityStack addObject:entity];
     }
-    JRRoute *route = [JRNavigationPushRoute routeWithDestinationViewControllerFactoryBlock:^UIViewController<JRViewControllerRouting> *{
+    JRRoute *route = [JRNavigationPushRoute routeWithDestinationViewControllerFactoryBlock:^UIViewController<JRRouteDelegate> *{
         return [[self mainStoryboard] instantiateViewControllerWithIdentifier:@"JRSPDetailViewController"];
     }];
     [route setTag:JRSPRouteTypePush];

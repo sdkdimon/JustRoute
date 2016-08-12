@@ -21,9 +21,9 @@
 //  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import <JustRoute/JRViewControllerRouting.h>
+#import <JustRoute/JRRouteDelegate.h>
 
-@interface JRSPBaseViewController : UIViewController <JRViewControllerRouting>
+@interface JRSPBaseViewController : UIViewController <JRRouteDelegate>
 
 - (BOOL)useBackButton;
 

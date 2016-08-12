@@ -73,7 +73,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JRSPEntity *entity = [[_router entities] objectAtIndex:[indexPath row]];
     [_router pushEntity:entity withSender:self];
-    //[_detailsRoute routeAnimated:YES completion:nil];
 }
 
 

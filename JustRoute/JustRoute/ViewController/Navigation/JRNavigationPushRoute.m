@@ -36,7 +36,7 @@
     return self;
 }
 
-- (void)route:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
     UINavigationController *navigationController = [self extractNavigationController:sender];
     [self setSourceViewController:sender];
     [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
