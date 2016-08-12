@@ -1,5 +1,5 @@
 //
-//  JRNavigationSetRoute.h
+//  JRNavigationRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,28 +20,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationRoute.h"
-#import "JustRoute/JRViewControllerFactoryBlock.h"
+#import "JRRoute.h"
 
-typedef enum {
-    
-    JRNavigationSetRouteTypeReplace = 0,
-    JRNavigationSetRouteTypeAppend,
-    JRNavigationSetRouteTypeInsert,
-    JRNavigationSetRouteTypeCustom
-    
-}JRNavigationSetRouteType;
+@interface JRNavigationRoute : JRRoute
 
-@interface JRNavigationSetRoute : JRNavigationRoute
-
-+ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
-
-- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
-
-@property (strong, nonatomic, readwrite) NSArray <JRViewControllerFactoryBlock> *destinationViewControllerFactoryBlocks;
-
-@property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
-
-@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
+- (UINavigationController *)extractNavigationController:(UIViewController *)viewController;
 
 @end

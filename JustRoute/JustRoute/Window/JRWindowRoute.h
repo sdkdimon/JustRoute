@@ -20,8 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JustRoute/JRRoute.h"
-#import "JustRoute/JRWindowFactoryBlock.h"
+#import "JRRoute.h"
+#import "JRWindowFactoryBlock.h"
 #import "JRReversibleRouting.h"
 
 @interface JRWindowRoute : JRRoute <JRReversibleRouting>

@@ -1,5 +1,5 @@
 //
-//  JRViewControllerPresentRoute.h
+//  JRViewControllerDismissRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,11 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JustRoute/JRRoute.h"
-#import "JustRoute/JRViewControllerFactoryBlock.h"
+#import "JRRoute.h"
 
-@interface JRViewControllerPresentRoute : JRRoute
-
-@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
+@interface JRViewControllerDismissRoute : JRRoute
 
 @end

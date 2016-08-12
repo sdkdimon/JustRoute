@@ -1,5 +1,5 @@
 //
-//  JRReversibleRouting.h
+//  JRViewControllerPresentRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,10 +20,11 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRRouting.h"
+#import "JRRoute.h"
+#import "JRViewControllerFactoryBlock.h"
 
-@protocol JRReversibleRouting <JRRouting>
+@interface JRViewControllerPresentRoute : JRRoute
 
-- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
+@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 @end

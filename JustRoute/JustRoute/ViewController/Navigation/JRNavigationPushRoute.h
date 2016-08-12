@@ -1,5 +1,5 @@
 //
-//  JRNavigationRoute.h
+//  JRNavigationPushRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,10 +20,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JustRoute/JRRoute.h"
+#import "JRNavigationRoute.h"
+#import "JRViewControllerFactoryBlock.h"
 
-@interface JRNavigationRoute : JRRoute
+@interface JRNavigationPushRoute : JRNavigationRoute
 
-- (UINavigationController *)extractNavigationController:(UIViewController *)viewController;
++ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
+
+- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
+
+@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 @end

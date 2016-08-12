@@ -1,5 +1,5 @@
 //
-//  JRNavigationPushRoute.h
+//  JRReversibleRouting.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationRoute.h"
-#import "JustRoute/JRViewControllerFactoryBlock.h"
+#import <UIKit/UIKit.h>
 
-@interface JRNavigationPushRoute : JRNavigationRoute
+@protocol JRReversibleRouting <NSObject>
 
-+ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
+- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
 
 @end
