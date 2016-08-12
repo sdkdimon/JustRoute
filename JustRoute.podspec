@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     SPEC_WINDOW_ROOT =  SRC_ROOT + 'Window/'
     
     s.name             = 'JustRoute'
-    s.version          = '0.1.0'
+    s.version          = '0.1.1'
     s.summary          = 'iOS ViewController routing lib'
     s.homepage         = 'https://github.com/sdkdimon/JustRoute'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -28,6 +28,9 @@ Pod::Spec.new do |s|
     end
   
     s.subspec 'ViewController' do |view_controller|
+        view_controller.source_files = SPEC_VIEW_CONTROLLER_ROOT + '*.{h,m}'
+        view_controller.public_header_files = SPEC_VIEW_CONTROLLER_ROOT + '*.h'
+        
         view_controller.subspec 'Navigation' do |navigation|
             navigation.dependency 'JustRoute/Base'
             navigation.source_files = SPEC_NAVIGATION_ROOT + '*.{h,m}', SPEC_VIEW_CONTROLLER_ROOT + '*.{h,m}'
