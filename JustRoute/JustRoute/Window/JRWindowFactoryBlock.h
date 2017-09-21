@@ -23,6 +23,6 @@
 #ifndef JRWindowFactoryBlock_h
 #define JRWindowFactoryBlock_h
 
-typedef UIWindow *(^JRWindowFactoryBlock)();
+typedef UIWindow *(^JRWindowFactoryBlock)(void);
 
 #endif /* JRWindowFactoryBlock_h */

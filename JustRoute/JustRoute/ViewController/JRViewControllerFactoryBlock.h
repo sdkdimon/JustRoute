@@ -23,7 +23,7 @@
 #ifndef JRViewControllerFactoryBlock_h
 #define JRViewControllerFactoryBlock_h
 
-typedef UIViewController *(^JRViewControllerFactoryBlock)();
+typedef UIViewController *(^JRViewControllerFactoryBlock)(void);
 
 
 #endif /* JRViewControllerFactoryBlock_h */
