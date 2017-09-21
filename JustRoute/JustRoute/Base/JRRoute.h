@@ -63,6 +63,6 @@
 
 @interface JRRoute (Deprecated)
 
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock DEPRECATED_ATTRIBUTE;
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock;
 
 @end
