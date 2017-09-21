@@ -28,8 +28,6 @@
 - (NSInteger)tag;
 - (id)params;
 
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
-
 - (UIViewController *)sourceViewController;
 - (UIViewController *)destinationViewController;
 

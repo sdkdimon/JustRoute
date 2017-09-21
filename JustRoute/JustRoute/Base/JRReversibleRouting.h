@@ -24,6 +24,6 @@
 
 @protocol JRReversibleRouting <NSObject>
 
-- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
+- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock;
 
 @end

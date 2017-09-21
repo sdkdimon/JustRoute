@@ -27,7 +27,32 @@
 @synthesize sourceViewController = _sourceViewController;
 @synthesize destinationViewController = _destinationViewController;
 
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock{
+
+
+- (void)passAnimated:(BOOL)animated sender:(id)sender{
+    [self passAnimated:animated sender:sender completion:NULL];
+    
+}
+- (void)passAnimated:(BOOL)animated sender:(id)sender completion:(void(^)(void))completionBlock{
+    [self setSender:sender];
+    [self passAnimated:animated sourceViewController:[self findSourceViewController] completion:completionBlock];
+
+}
+
+- (void)passAnimated:(BOOL)animated{
+    [self passAnimated:animated completion:NULL];
+}
+
+- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock{
+    [self passAnimated:animated sourceViewController:[self findSourceViewController] completion:completionBlock];
+}
+
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController{
+    [self passAnimated:animated sourceViewController:sourceViewController completion:NULL];
+}
+
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
+    NSAssert(sourceViewController != nil, @"Source view controller can't be nil");
     
 }
 
@@ -40,6 +65,29 @@
 - (void)clear{
     [self setSourceViewController:nil];
     [self setDestinationViewController:nil];
+    [self setSender:nil];
     [self setParams:nil];
 }
+
+
+- (UIViewController *)findSourceViewController{
+    
+    if (_owner != nil && [_owner isKindOfClass:[UIViewController class]]) return _owner;
+    if (_sender != nil && [_sender isKindOfClass:[UIViewController class]]) return _sender;
+    
+    [[NSException exceptionWithName:@"SourceViewControllerNotFoundException" reason:@"Can't find source view controller" userInfo:nil] raise];
+    
+    return nil;
+}
+
+
+@end
+
+@implementation JRRoute (Deprecated)
+
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock
+{
+    [self passAnimated:animated sourceViewController:sender completion:completionBlock];
+}
+
 @end

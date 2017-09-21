@@ -27,25 +27,42 @@
 
 @interface JRRoute : NSObject <JRRouting>{
 @protected
-    __weak UIViewController *_sourceViewController;
-    __weak UIViewController *_destinationViewController;
+    __strong UIViewController *_sourceViewController;
+    __strong UIViewController *_destinationViewController;
 }
 
 @property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
 @property (strong, nonatomic, readwrite) id params;
 
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)())completionBlock;
+- (void)passAnimated:(BOOL)animated sender:(id)sender;
+- (void)passAnimated:(BOOL)animated sender:(id)sender completion:(void(^)(void))completionBlock;
+
+
+- (void)passAnimated:(BOOL)animated;
+- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock;
+
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController;
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void(^)(void))completionBlock;
 
 @property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
 
-@property (weak, nonatomic, readwrite) UIViewController *sourceViewController;
-@property (weak, nonatomic, readwrite) UIViewController *destinationViewController;
+
+@property (weak, nonatomic, readwrite) id owner;
+@property (strong, nonatomic, readwrite) id sender;
+
+@property (strong, nonatomic, readwrite) UIViewController *sourceViewController;
+@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
+
+- (UIViewController *)findSourceViewController;
 
 - (void)prepareForRoute;
 - (void)clear;
 
+@end
 
+@interface JRRoute (Deprecated)
 
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock DEPRECATED_ATTRIBUTE;
 
 @end

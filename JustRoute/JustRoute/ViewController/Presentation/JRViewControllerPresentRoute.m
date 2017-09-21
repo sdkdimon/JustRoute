@@ -24,12 +24,12 @@
 
 @implementation JRViewControllerPresentRoute
 
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
-    NSAssert(sender != nil, @"Source view controller can not be nil");
-    [self setSourceViewController:sender];
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
+    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
+    [self setSourceViewController:sourceViewController];
     [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
     [self prepareForRoute];
-    [sender presentViewController:_destinationViewController animated:animated completion:completionBlock];
+    [sourceViewController presentViewController:_destinationViewController animated:animated completion:completionBlock];
     [self clear];
 }
 

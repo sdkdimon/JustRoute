@@ -26,7 +26,8 @@
 
 @interface JRWindowRoute : JRRoute <JRReversibleRouting>
 
-@property (strong, nonatomic, readonly) UIWindow *window;
+@property (strong, nonatomic, readwrite) UIWindow *sourceWindow;
+@property (strong, nonatomic, readonly) UIWindow *destinationWindow;
 @property (strong, nonatomic, readwrite) JRWindowFactoryBlock windowFactoryBlock;
 
 @end

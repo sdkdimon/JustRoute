@@ -24,6 +24,7 @@
 #import <JustRoute/JRRouteDelegate.h>
 #import <JustRoute/JRNavigationPushRoute.h>
 #import <JustRoute/JRNavigationPopRoute.h>
+#import <JustRoute/JRWindowRoute.h>
 #import "JRSPDetailViewControllerInput.h"
 #import "JRSPEntity.h"
 #import "JRSPHSBColorRandGenerator.h"
@@ -84,8 +85,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
     }];
     [route setTag:JRSPRouteTypePush];
     [route setDelegate:self];
-    
-    [route passFromViewController:sender animated:YES completion:nil];
+    [route passAnimated:YES sender:sender];
 }
 - (void)popEntityWithSender:(UIViewController *)sender{
     if ([_entityStack count] > 0){
@@ -95,8 +95,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
         
         NSUInteger lastEntityIdx = [_entityStack count] - 1;
         [_entityStack removeObjectAtIndex:lastEntityIdx];
-        
-        [route passFromViewController:sender animated:YES completion:nil];
+        [route passAnimated:YES sender:sender];
     }
     
 }
@@ -107,7 +106,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
         [route setTag:JRSPRouteTypePopToRoot];
         [route setDelegate:self];
         [_entityStack removeAllObjects];
-        [route passFromViewController:sender animated:YES completion:nil];
+        [route passAnimated:YES sender:sender];
     }
 }
 
@@ -139,5 +138,6 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
     
     
 }
+
 
 @end

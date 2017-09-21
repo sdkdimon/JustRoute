@@ -37,9 +37,10 @@
     return self;
 }
 
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)())completionBlock{
-    UINavigationController *navigationController = [self extractNavigationController:sender];
-    [self setSourceViewController:sender];
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
+    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
+    UINavigationController *navigationController = [self extractNavigationController:sourceViewController];
+    [self setSourceViewController:sourceViewController];
     NSMutableArray *destinationViewControllers = [[NSMutableArray alloc] init];
     for (JRViewControllerFactoryBlock destinationViewControllerFactoryBlock in _destinationViewControllerFactoryBlocks){
         UIViewController *destinationViewController = destinationViewControllerFactoryBlock();
