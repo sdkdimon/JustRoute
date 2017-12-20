@@ -147,8 +147,8 @@
 		8A4396A91D401287000DCA38 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8AFFA29F1D45484A00292399 /* Base */,
 				8A4396AB1D401327000DCA38 /* Detail */,
+				8AFFA29F1D45484A00292399 /* Base */,
 				8A4396AA1D401316000DCA38 /* List */,
 			);
 			name = ViewControllers;

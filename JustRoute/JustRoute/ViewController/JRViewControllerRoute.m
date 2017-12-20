@@ -1,5 +1,5 @@
 //
-//  JRWindowRoute.m
+//  JRViewControllerRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,26 +20,40 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRWindowRoute.h"
+#import "JRViewControllerRoute.h"
 
-@implementation JRWindowRoute
+@implementation JRViewControllerRoute
 @dynamic source, destination;
 
-- (void)passAnimated:(BOOL)animated source:(id)source completion:(void (^)(void))completionBlock
+- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock
 {
-    [super passAnimated:animated source:source completion:completionBlock];
-    UIWindow *window = [self createDestination];
-    [self setSource:source];
-    [self setDestination:window];
-    [self prepareForRoute];
-    [window makeKeyAndVisible];
-    [self clearWithCompletion:completionBlock];
-    [self setDestination:window];
+    [self passAnimated:animated source:[self findSourceViewController] completion:completionBlock];
 }
 
-- (void)close
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source
 {
-    [self setDestination:nil];
+    [super passAnimated:animated source:source];
+}
+
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void (^)(void))completionBlock
+{
+    NSAssert(source != nil, @"Source view controller can't be nil");
+}
+
+- (UIViewController *)findSourceViewController
+{
+    if (self.owner != nil && [self.owner isKindOfClass:[UIViewController class]]) return self.owner;
+    [[NSException exceptionWithName:@"SourceViewControllerNotFoundException" reason:@"Can't find source view controller" userInfo:nil] raise];
+    return nil;
+}
+
+@end
+
+@implementation JRViewControllerRoute (Deprecated)
+
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock
+{
+    [self passAnimated:animated source:sender completion:completionBlock];
 }
 
 @end

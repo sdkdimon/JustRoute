@@ -21,10 +21,7 @@
 //  THE SOFTWARE.
 
 #import "JRRoute.h"
-#import "JRViewControllerFactoryBlock.h"
 
 @interface JRViewControllerPresentRoute : JRRoute
-
-@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 @end

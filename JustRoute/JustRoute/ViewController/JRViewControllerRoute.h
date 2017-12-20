@@ -1,5 +1,5 @@
 //
-//  JRViewControllerFactoryBlock.h
+//  JRViewControllerRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,10 +20,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#ifndef JRViewControllerFactoryBlock_h
-#define JRViewControllerFactoryBlock_h
 
-typedef UIViewController *(^JRViewControllerFactoryBlock)(void);
+#import <JustRoute/JRRoute.h>
 
+#import <UIKit/UIViewController.h>
 
-#endif /* JRViewControllerFactoryBlock_h */
+@interface JRViewControllerRoute : JRRoute
+
+@property (strong, nonatomic, readwrite) UIViewController *source;
+@property (strong, nonatomic, readwrite) UIViewController *destination;
+
+- (UIViewController *)findSourceViewController;
+
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source;
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void(^)(void))completionBlock;
+
+@end
+
+@interface JRViewControllerRoute (Deprecated)
+
+- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock;
+
+@end

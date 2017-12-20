@@ -24,38 +24,28 @@
 
 @implementation JRNavigationPopRoute
 
-+ (instancetype)routeWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void (^)(void))completionBlock
 {
-    return [[self alloc] initWithDestinationViewController:destinationViewController routeType:routeType];
-}
-
-- (instancetype)initWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType
-{
-    self = [super init];
-    if (self != nil){
-        _destinationViewController = destinationViewController;
-        _routeType = routeType;
-    }
-    return self;
-}
-
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock
-{
-    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
+    [super passAnimated:animated source:source completion:completionBlock];
     
-    UINavigationController *navigationController = [self extractNavigationController:sourceViewController];
-    [self setSourceViewController:sourceViewController];
+    UINavigationController *navigationController = [self extractNavigationController:source];
+    [self setSource:source];
     [self prepareForRoute];
-    switch (_routeType) {
+    switch (_routeType)
+    {
         case JRNavigationPopRouteTypeDefault:
         {
-            if (_destinationViewController != nil){
-                [navigationController popToViewController:_destinationViewController animated:animated];
-            }else{
+            if (self.destination != nil)
+            {
+                [navigationController popToViewController:self.destination animated:animated];
+            }
+            else
+            {
                 [navigationController popViewControllerAnimated:animated];
             }
         }
             break;
+            
         case JRNavigationPopRouteTypeToRoot:
         {
             [navigationController popToRootViewControllerAnimated:animated];
@@ -65,12 +55,7 @@
             break;
     }
     
-    [self clear];
-    
-    if (completionBlock != NULL){
-        completionBlock();
-    }
-
+    [self clearWithCompletion:completionBlock];
 }
 
 

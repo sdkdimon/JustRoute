@@ -22,14 +22,17 @@
 
 #import "JRViewControllerPresentRoute.h"
 
+#import <UIKit/UIViewController.h>
+
 @implementation JRViewControllerPresentRoute
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
-    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
-    [self setSourceViewController:sourceViewController];
-    [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
+- (void)passAnimated:(BOOL)animated source:(id)source completion:(void (^)(void))completionBlock
+{
+    [super passAnimated:animated source:source completion:completionBlock];
+    [self setSource:source];
+    [self setDestination:[self createDestination]];
     [self prepareForRoute];
-    [sourceViewController presentViewController:_destinationViewController animated:animated completion:completionBlock];
+    [source presentViewController:self.destination animated:animated completion:completionBlock];
     [self clear];
 }
 

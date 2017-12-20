@@ -28,19 +28,18 @@ FOUNDATION_EXPORT double JustRouteVersionNumber;
 //! Project version string for JustRoute.
 FOUNDATION_EXPORT const unsigned char JustRouteVersionString[];
 
-#import <JustRoute/JustRoute.h>
-
 #import <JustRoute/JRRoute.h>
-#import <JustRoute/JRRouting.h>
-#import <JustRoute/JRReversibleRouting.h>
-#import <JustRoute/JRRouteDelegate.h>
-#import <JustRoute/JRViewControllerFactoryBlock.h>
-#import <JustRoute/JRNavigationPopRoute.h>
-#import <JustRoute/JRNavigationPushRoute.h>
-#import <JustRoute/JRNavigationRoute.h>
-#import <JustRoute/JRNavigationSetRoute.h>
-#import <JustRoute/JRViewControllerDismissRoute.h>
-#import <JustRoute/JRViewControllerPresentRoute.h>
-#import <JustRoute/JRWindowFactoryBlock.h>
+#import <JustRoute/JRRouteDestinationFactoryBlock.h>
+#import <JustRoute/JRViewControllerRoute.h>
 #import <JustRoute/JRWindowRoute.h>
+#import <JustRoute/JRRouteDelegate.h>
+
+#import <JustRoute/JRNavigationRoute.h>
+//#import <JustRoute/JRNavigationPopRoute.h>
+//#import <JustRoute/JRNavigationPushRoute.h>
+//#import <JustRoute/JRNavigationSetRoute.h>
+//#import <JustRoute/JRViewControllerDismissRoute.h>
+//#import <JustRoute/JRViewControllerPresentRoute.h>
+
+
 

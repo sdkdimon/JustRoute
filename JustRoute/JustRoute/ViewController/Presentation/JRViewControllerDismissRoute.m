@@ -22,14 +22,17 @@
 
 #import "JRViewControllerDismissRoute.h"
 
+#import <UIKit/UIViewController.h>
+
 @implementation JRViewControllerDismissRoute
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
-    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
-    [self setSourceViewController:sourceViewController];
-    [self setDestinationViewController:[sourceViewController presentingViewController]];
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void (^)(void))completionBlock
+{    
+    [super passAnimated:animated source:source completion:completionBlock];
+    [self setSource:source];
+    [self setDestination:[self createDestination]];
     [self prepareForRoute];
-    [sourceViewController dismissViewControllerAnimated:animated completion:completionBlock];
+    [source dismissViewControllerAnimated:animated completion:completionBlock];
     [self clear];
 }
 

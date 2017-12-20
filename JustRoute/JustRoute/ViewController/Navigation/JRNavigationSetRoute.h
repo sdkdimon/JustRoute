@@ -20,28 +20,24 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationRoute.h"
-#import "JRViewControllerFactoryBlock.h"
+#import <JustRoute/JRNavigationRoute.h>
 
 typedef enum {
-    
     JRNavigationSetRouteTypeReplace = 0,
     JRNavigationSetRouteTypeAppend,
     JRNavigationSetRouteTypeInsert,
     JRNavigationSetRouteTypeCustom
-    
 }JRNavigationSetRouteType;
 
 @interface JRNavigationSetRoute : JRNavigationRoute
 
-+ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
++ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRRouteDestinationFactoryBlock> *)destinationViewControllerFactoryBlocks
+                                                      routeType:(JRNavigationSetRouteType)routeType;
+- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRRouteDestinationFactoryBlock> *)destinationViewControllerFactoryBlocks
+                                                     routeType:(JRNavigationSetRouteType)routeType;
 
-- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType;
-
-@property (strong, nonatomic, readwrite) NSArray <JRViewControllerFactoryBlock> *destinationViewControllerFactoryBlocks;
-
+@property (strong, nonatomic, readwrite) NSArray <JRRouteDestinationFactoryBlock> *destinationViewControllerFactoryBlocks;
 @property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
-
 @property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
 
 @end

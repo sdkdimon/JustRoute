@@ -1,5 +1,5 @@
 //
-//  JRWindowFactoryBlock.h
+//  JRRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,9 +20,38 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#ifndef JRWindowFactoryBlock_h
-#define JRWindowFactoryBlock_h
+#import <UIKit/UIKit.h>
 
-typedef UIWindow *(^JRWindowFactoryBlock)(void);
+#import <JustRoute/JRRouteDestinationFactoryBlock.h>
 
-#endif /* JRWindowFactoryBlock_h */
+@protocol JRRouteDelegate;
+
+@interface JRRoute : NSObject
+
+@property (strong, nonatomic, readwrite) JRRouteDestinationFactoryBlock destinationFactoryBlock;
+
+@property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
+@property (weak, nonatomic, readwrite) id owner;
+
+@property (strong, nonatomic, readwrite) id source;
+@property (strong, nonatomic, readwrite) id destination;
+
+@property (strong, nonatomic, readwrite) NSString *identifier;
+@property (assign, nonatomic, readwrite) NSInteger tag;
+@property (strong, nonatomic, readwrite) id params;
+
+- (JRRoute *)prepareForRouteBlock:(void (^)(id))prepareForRouteBlock;
+
+- (void)passAnimated:(BOOL)animated;
+- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock;
+
+- (void)passAnimated:(BOOL)animated source:(id)source;
+- (void)passAnimated:(BOOL)animated source:(id)source completion:(void(^)(void))completionBlock;
+
+- (void)prepareForRoute;
+- (void)clear;
+- (void)clearWithCompletion:(void (^)(void))completion;
+
+- (id)createDestination;
+
+@end

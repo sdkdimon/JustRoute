@@ -20,7 +20,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationRoute.h"
+#import <JustRoute/JRNavigationRoute.h>
 
 typedef enum {
     JRNavigationPopRouteTypeDefault = 0,
@@ -29,11 +29,6 @@ typedef enum {
 
 @interface JRNavigationPopRoute : JRNavigationRoute
 
-+ (instancetype)routeWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
-
-- (instancetype)initWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType;
-
 @property (assign, nonatomic, readwrite) JRNavigationPopRouteType routeType;
-
 
 @end

@@ -1,5 +1,5 @@
 //
-//  JRRouting.h
+//  JRRouteDestinationFactoryBlock.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,16 +20,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#ifndef JRRouteDestinationFactoryBlock_h
+#define JRRouteDestinationFactoryBlock_h
 
-@protocol JRRouting <NSObject>
+typedef id (^JRRouteDestinationFactoryBlock)(void);
 
-- (NSString *)identifier;
-- (NSInteger)tag;
-- (id)params;
-
-- (UIViewController *)sourceViewController;
-- (UIViewController *)destinationViewController;
-
-
-@end
+#endif /* JRRouteDestinationFactoryBlock_h */

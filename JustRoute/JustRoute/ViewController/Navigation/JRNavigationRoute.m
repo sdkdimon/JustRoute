@@ -24,7 +24,8 @@
 
 @implementation JRNavigationRoute
 
-- (UINavigationController *)extractNavigationController:(UIViewController *)viewController{
+- (UINavigationController *)extractNavigationController:(UIViewController *)viewController
+{
     UINavigationController *navigationController = [viewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)viewController : [viewController navigationController];
     NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
     return navigationController;
