@@ -21,11 +21,13 @@
 //  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "JRRouting.h"
+
+#import <JustRoute/JRRouting.h>
 
 @protocol JRRouteDelegate;
 
-@interface JRRoute : NSObject <JRRouting>{
+@interface JRRoute : NSObject <JRRouting>
+{
 @protected
     __strong UIViewController *_sourceViewController;
     __strong UIViewController *_destinationViewController;
@@ -35,9 +37,7 @@
 @property (assign, nonatomic, readwrite) NSInteger tag;
 @property (strong, nonatomic, readwrite) id params;
 
-- (void)passAnimated:(BOOL)animated sender:(id)sender;
-- (void)passAnimated:(BOOL)animated sender:(id)sender completion:(void(^)(void))completionBlock;
-
+- (JRRoute *)prepareForRouteBlock:(void (^)(id))prepareForRouteBlock;
 
 - (void)passAnimated:(BOOL)animated;
 - (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock;
@@ -45,19 +45,15 @@
 - (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController;
 - (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void(^)(void))completionBlock;
 
+- (UIViewController *)findSourceViewController;
+- (void)prepareForRoute;
+- (void)clear;
+
 @property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
-
-
 @property (weak, nonatomic, readwrite) id owner;
-@property (strong, nonatomic, readwrite) id sender;
 
 @property (strong, nonatomic, readwrite) UIViewController *sourceViewController;
 @property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
-
-- (UIViewController *)findSourceViewController;
-
-- (void)prepareForRoute;
-- (void)clear;
 
 @end
 

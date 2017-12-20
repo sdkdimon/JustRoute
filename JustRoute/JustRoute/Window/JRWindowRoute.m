@@ -26,12 +26,12 @@
 
 @property (strong, nonatomic, readwrite) UIWindow *destinationWindow;
 
-
 @end
 
 @implementation JRWindowRoute
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock
+{
     [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
     NSAssert(_windowFactoryBlock != nil, @"windowFactoryBlock can not be NULL");
     UIWindow *window = _windowFactoryBlock();
@@ -43,7 +43,8 @@
     [self clear];
 }
 
-- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)(void))completionBlock{
+- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)(void))completionBlock
+{
     [self setSourceViewController:sender];
     [self setDestinationViewController:[_sourceWindow rootViewController]];
     [self prepareForRoute];

@@ -1,5 +1,5 @@
 //
-//  JRSPEntityService.h
+//  JustRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,16 +21,26 @@
 //  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-@class JRSPEntity;
-@class JRRoute;
 
-@interface JRSPRouter : NSObject
+//! Project version number for JustRoute.
+FOUNDATION_EXPORT double JustRouteVersionNumber;
 
-@property (strong, nonatomic, readwrite) NSArray <JRSPEntity *> *entities;
-@property (strong, nonatomic, readonly) NSMutableArray *entityStack;
+//! Project version string for JustRoute.
+FOUNDATION_EXPORT const unsigned char JustRouteVersionString[];
 
-- (void)pushEntity:(JRSPEntity *)entity withSender:(UIViewController *)sender;
-- (void)popEntityWithSender:(UIViewController *)sender;
-- (void)popToListOfEntitiesWithSender:(UIViewController *)sender;
+#import <JustRoute/JustRoute.h>
 
-@end
+#import <JustRoute/JRRoute.h>
+#import <JustRoute/JRRouting.h>
+#import <JustRoute/JRReversibleRouting.h>
+#import <JustRoute/JRRouteDelegate.h>
+#import <JustRoute/JRViewControllerFactoryBlock.h>
+#import <JustRoute/JRNavigationPopRoute.h>
+#import <JustRoute/JRNavigationPushRoute.h>
+#import <JustRoute/JRNavigationRoute.h>
+#import <JustRoute/JRNavigationSetRoute.h>
+#import <JustRoute/JRViewControllerDismissRoute.h>
+#import <JustRoute/JRViewControllerPresentRoute.h>
+#import <JustRoute/JRWindowFactoryBlock.h>
+#import <JustRoute/JRWindowRoute.h>
+

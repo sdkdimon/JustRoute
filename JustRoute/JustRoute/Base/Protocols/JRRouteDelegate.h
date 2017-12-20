@@ -1,5 +1,5 @@
 //
-//  JRSPEntityService.h
+//  JRRouteDelegate.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,17 +20,11 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-@class JRSPEntity;
+#import <Foundation/Foundation.h>
 @class JRRoute;
 
-@interface JRSPRouter : NSObject
+@protocol JRRouteDelegate <NSObject>
 
-@property (strong, nonatomic, readwrite) NSArray <JRSPEntity *> *entities;
-@property (strong, nonatomic, readonly) NSMutableArray *entityStack;
-
-- (void)pushEntity:(JRSPEntity *)entity withSender:(UIViewController *)sender;
-- (void)popEntityWithSender:(UIViewController *)sender;
-- (void)popToListOfEntitiesWithSender:(UIViewController *)sender;
+- (void)prepareForRoute:(JRRoute *)route;
 
 @end

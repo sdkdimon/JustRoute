@@ -85,7 +85,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
     }];
     [route setTag:JRSPRouteTypePush];
     [route setDelegate:self];
-    [route passAnimated:YES sender:sender];
+    [route passAnimated:YES sourceViewController:sender];
 }
 - (void)popEntityWithSender:(UIViewController *)sender{
     if ([_entityStack count] > 0){
@@ -95,7 +95,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
         
         NSUInteger lastEntityIdx = [_entityStack count] - 1;
         [_entityStack removeObjectAtIndex:lastEntityIdx];
-        [route passAnimated:YES sender:sender];
+        [route passAnimated:YES sourceViewController:sender];
     }
     
 }
@@ -106,7 +106,7 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
         [route setTag:JRSPRouteTypePopToRoot];
         [route setDelegate:self];
         [_entityStack removeAllObjects];
-        [route passAnimated:YES sender:sender];
+        [route passAnimated:YES sourceViewController:sender];
     }
 }
 
@@ -134,9 +134,6 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
         default:
             break;
     }
-    
-    
-    
 }
 
 

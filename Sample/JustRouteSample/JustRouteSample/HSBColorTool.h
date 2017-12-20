@@ -24,6 +24,6 @@
 #define HSBColorTool_h
 
 #include "HSBColor.h"
-HSBColor HSBColorRandMake();
+HSBColor HSBColorRandMake(void);
 
 #endif /* HSBColorTool_h */

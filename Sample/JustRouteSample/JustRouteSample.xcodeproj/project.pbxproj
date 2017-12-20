@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1058331FD06E7D00858B2C /* JustRoute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1058341FD06E7D00858B2C /* JustRoute.framework */; };
+		8A1058361FD06E8E00858B2C /* JustRoute.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A1058341FD06E7D00858B2C /* JustRoute.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A2B60151D45F05E00E0D745 /* JRSPRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2B60141D45F05E00E0D745 /* JRSPRouter.m */; };
 		8A4396931D4011C3000DCA38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4396921D4011C3000DCA38 /* main.m */; };
 		8A4396961D4011C3000DCA38 /* JRSPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4396951D4011C3000DCA38 /* JRSPAppDelegate.m */; };
@@ -18,11 +20,24 @@
 		8A4396B31D401476000DCA38 /* JRSPEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4396B21D401476000DCA38 /* JRSPEntity.m */; };
 		8A4396BD1D40233F000DCA38 /* HSBColorTool.c in Sources */ = {isa = PBXBuildFile; fileRef = 8A4396BC1D40233F000DCA38 /* HSBColorTool.c */; };
 		8A4396C01D402462000DCA38 /* JRSPHSBColorRandGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4396BF1D402462000DCA38 /* JRSPHSBColorRandGenerator.m */; };
-		8A444D9C1D43DCCF00E5E429 /* libJustRoute.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A444D9A1D43DC9C00E5E429 /* libJustRoute.a */; };
 		8AFFA2A21D45488800292399 /* JRSPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFFA2A11D45488800292399 /* JRSPBaseViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8A1058351FD06E8600858B2C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A1058361FD06E8E00858B2C /* JustRoute.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8A1058341FD06E7D00858B2C /* JustRoute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JustRoute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2B60131D45F05E00E0D745 /* JRSPRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSPRouter.h; sourceTree = "<group>"; };
 		8A2B60141D45F05E00E0D745 /* JRSPRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSPRouter.m; sourceTree = "<group>"; };
 		8A43968E1D4011C2000DCA38 /* JustRouteSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustRouteSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,7 +60,6 @@
 		8A4396BE1D402462000DCA38 /* JRSPHSBColorRandGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSPHSBColorRandGenerator.h; sourceTree = "<group>"; };
 		8A4396BF1D402462000DCA38 /* JRSPHSBColorRandGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSPHSBColorRandGenerator.m; sourceTree = "<group>"; };
 		8A4396C11D40248A000DCA38 /* HSBColorTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSBColorTool.h; sourceTree = "<group>"; };
-		8A444D9A1D43DC9C00E5E429 /* libJustRoute.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJustRoute.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/JustRouteSample-dxkoufixvkmlofhedgtzdaldkulo/Build/Products/Debug-iphonesimulator/libJustRoute.a"; sourceTree = "<group>"; };
 		8AFFA2A01D45488800292399 /* JRSPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSPBaseViewController.h; sourceTree = "<group>"; };
 		8AFFA2A11D45488800292399 /* JRSPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSPBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,13 +69,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A444D9C1D43DCCF00E5E429 /* libJustRoute.a in Frameworks */,
+				8A1058331FD06E7D00858B2C /* JustRoute.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1058321FD06E7D00858B2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A1058341FD06E7D00858B2C /* JustRoute.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8A2B60171D46135600E0D745 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +98,7 @@
 			children = (
 				8A4396901D4011C3000DCA38 /* JustRouteSample */,
 				8A43968F1D4011C2000DCA38 /* Products */,
+				8A1058321FD06E7D00858B2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,7 +130,6 @@
 		8A4396911D4011C3000DCA38 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A444D9A1D43DC9C00E5E429 /* libJustRoute.a */,
 				8A4396921D4011C3000DCA38 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -191,6 +213,7 @@
 				8A43968A1D4011C2000DCA38 /* Sources */,
 				8A43968B1D4011C2000DCA38 /* Frameworks */,
 				8A43968C1D4011C2000DCA38 /* Resources */,
+				8A1058351FD06E8600858B2C /* CopyFiles */,
 			);
 			buildRules = (
 			);

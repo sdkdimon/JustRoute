@@ -21,65 +21,72 @@
 //  THE SOFTWARE.
 
 #import "JRRoute.h"
+
 #import "JRRouteDelegate.h"
+
+@interface JRRoute ()
+
+@property (strong, nonatomic, readwrite) void (^prepareForRouteBlock)(id);
+
+@end
 
 @implementation JRRoute
 @synthesize sourceViewController = _sourceViewController;
 @synthesize destinationViewController = _destinationViewController;
 
-
-
-- (void)passAnimated:(BOOL)animated sender:(id)sender{
-    [self passAnimated:animated sender:sender completion:NULL];
-    
-}
-- (void)passAnimated:(BOOL)animated sender:(id)sender completion:(void(^)(void))completionBlock{
-    [self setSender:sender];
-    [self passAnimated:animated sourceViewController:[self findSourceViewController] completion:completionBlock];
-
+- (JRRoute *)prepareForRouteBlock:(void (^)(id))prepareForRouteBlock
+{
+    _prepareForRouteBlock = [prepareForRouteBlock copy];
+    return self;
 }
 
-- (void)passAnimated:(BOOL)animated{
+- (void)passAnimated:(BOOL)animated
+{
     [self passAnimated:animated completion:NULL];
 }
 
-- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock{
+- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock
+{
     [self passAnimated:animated sourceViewController:[self findSourceViewController] completion:completionBlock];
 }
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController{
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController
+{
     [self passAnimated:animated sourceViewController:sourceViewController completion:NULL];
 }
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock
+{
     NSAssert(sourceViewController != nil, @"Source view controller can't be nil");
-    
 }
 
-- (void)prepareForRoute{
-    if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)]){
+- (void)prepareForRoute
+{
+    if (_prepareForRouteBlock != NULL)
+    {
+        _prepareForRouteBlock(self);
+    }
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)])
+    {
         [_delegate prepareForRoute:self];
     }
 }
 
-- (void)clear{
+- (void)clear
+{
     [self setSourceViewController:nil];
     [self setDestinationViewController:nil];
-    [self setSender:nil];
     [self setParams:nil];
+    self.prepareForRouteBlock = NULL;
 }
 
-
-- (UIViewController *)findSourceViewController{
-    
+- (UIViewController *)findSourceViewController
+{
     if (_owner != nil && [_owner isKindOfClass:[UIViewController class]]) return _owner;
-    if (_sender != nil && [_sender isKindOfClass:[UIViewController class]]) return _sender;
-    
     [[NSException exceptionWithName:@"SourceViewControllerNotFoundException" reason:@"Can't find source view controller" userInfo:nil] raise];
-    
     return nil;
 }
-
 
 @end
 

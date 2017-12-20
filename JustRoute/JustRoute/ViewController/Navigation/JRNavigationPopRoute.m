@@ -24,11 +24,13 @@
 
 @implementation JRNavigationPopRoute
 
-+ (instancetype)routeWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
++ (instancetype)routeWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType
+{
     return [[self alloc] initWithDestinationViewController:destinationViewController routeType:routeType];
 }
 
-- (instancetype)initWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType{
+- (instancetype)initWithDestinationViewController:(UIViewController *)destinationViewController routeType:(JRNavigationPopRouteType)routeType
+{
     self = [super init];
     if (self != nil){
         _destinationViewController = destinationViewController;
@@ -37,17 +39,16 @@
     return self;
 }
 
-
-
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
+- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock
+{
     [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
     
     UINavigationController *navigationController = [self extractNavigationController:sourceViewController];
     [self setSourceViewController:sourceViewController];
     [self prepareForRoute];
     switch (_routeType) {
-        case JRNavigationPopRouteTypeDefault:{
-            
+        case JRNavigationPopRouteTypeDefault:
+        {
             if (_destinationViewController != nil){
                 [navigationController popToViewController:_destinationViewController animated:animated];
             }else{
@@ -55,7 +56,8 @@
             }
         }
             break;
-        case JRNavigationPopRouteTypeToRoot:{
+        case JRNavigationPopRouteTypeToRoot:
+        {
             [navigationController popToRootViewControllerAnimated:animated];
         }
             
