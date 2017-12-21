@@ -48,12 +48,3 @@
 }
 
 @end
-
-@implementation JRViewControllerRoute (Deprecated)
-
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock
-{
-    [self passAnimated:animated source:sender completion:completionBlock];
-}
-
-@end
