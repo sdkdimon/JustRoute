@@ -20,8 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRRoute.h"
+#import <JustRoute/JRViewControllerRoute.h>
 
-@interface JRViewControllerPresentRoute : JRRoute
+@interface JRViewControllerPresentRoute : JRViewControllerRoute
 
 @end

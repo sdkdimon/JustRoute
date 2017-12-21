@@ -22,8 +22,6 @@
 
 #import "JRViewControllerPresentRoute.h"
 
-#import <UIKit/UIViewController.h>
-
 @implementation JRViewControllerPresentRoute
 
 - (void)passAnimated:(BOOL)animated source:(id)source completion:(void (^)(void))completionBlock
