@@ -70,20 +70,12 @@
 		8A0BF0261FEBC52F006A91D5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8A10583B1FD0765900858B2C /* Protocols */,
+				8A72263F1D5DF072003656C1 /* JRRouteDelegate.h */,
 				8A93D40D1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h */,
 				8A72263D1D5DF072003656C1 /* JRRoute.h */,
 				8A72263E1D5DF072003656C1 /* JRRoute.m */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		8A10583B1FD0765900858B2C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				8A72263F1D5DF072003656C1 /* JRRouteDelegate.h */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8A2478151FEAD9D300146A1C /* Navigation */ = {
