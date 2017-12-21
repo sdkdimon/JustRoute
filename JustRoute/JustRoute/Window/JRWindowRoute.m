@@ -25,7 +25,12 @@
 @implementation JRWindowRoute
 @dynamic source, destination;
 
-- (void)passAnimated:(BOOL)animated source:(id)source completion:(void (^)(void))completionBlock
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source
+{
+    [super passAnimated:animated source:source];
+}
+
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source completion:(void (^)(void))completionBlock
 {
     [super passAnimated:animated source:source completion:completionBlock];
     UIWindow *window = [self createDestination];

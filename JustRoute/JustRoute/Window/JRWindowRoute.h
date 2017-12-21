@@ -27,6 +27,9 @@
 @property (strong, nonatomic, readwrite) UIWindow *source;
 @property (strong, nonatomic, readwrite) UIWindow *destination;
 
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source;
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source completion:(void(^)(void))completionBlock;
+
 - (void)close;
 
 @end
