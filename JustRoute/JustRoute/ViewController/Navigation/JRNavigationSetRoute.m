@@ -24,53 +24,75 @@
 
 @implementation JRNavigationSetRoute
 
-+ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray<JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType{
-    return [[self alloc] initWithDestinationViewControllerFactoryBlocks:destinationViewControllerFactoryBlocks routeType:routeType];
++ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray<JRRouteDestinationFactoryBlock> *)destinationViewControllerFactoryBlocks
+                                                      routeType:(JRNavigationSetRouteType)routeType
+{
+    return [[self alloc] initWithDestinationViewControllerFactoryBlocks:destinationViewControllerFactoryBlocks
+                                                              routeType:routeType];
 }
 
-- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray<JRViewControllerFactoryBlock> *)destinationViewControllerFactoryBlocks routeType:(JRNavigationSetRouteType)routeType{
+- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray<JRRouteDestinationFactoryBlock> *)destinationViewControllerFactoryBlocks
+                                                     routeType:(JRNavigationSetRouteType)routeType
+{
     self = [super init];
-    if (self != nil){
+    if (self != nil)
+    {
         _destinationViewControllerFactoryBlocks = destinationViewControllerFactoryBlocks;
         _routeType = routeType;
     }
     return self;
 }
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
-    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
-    UINavigationController *navigationController = [self extractNavigationController:sourceViewController];
-    [self setSourceViewController:sourceViewController];
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void (^)(void))completionBlock
+{
+    [super passAnimated:animated source:source completion:completionBlock];
+    UINavigationController *navigationController = [self extractNavigationController:source];
+    [self setSource:source];
     NSMutableArray *destinationViewControllers = [[NSMutableArray alloc] init];
-    for (JRViewControllerFactoryBlock destinationViewControllerFactoryBlock in _destinationViewControllerFactoryBlocks){
-        UIViewController *destinationViewController = destinationViewControllerFactoryBlock();
-        [self setDestinationViewController:destinationViewController];
-        [destinationViewControllers addObject:destinationViewController];
+    for (JRRouteDestinationFactoryBlock destinationViewControllerFactoryBlock in _destinationViewControllerFactoryBlocks)
+    {
+        UIViewController *destination = destinationViewControllerFactoryBlock();
+        [self setDestination:destination];
+        [destinationViewControllers addObject:destination];
         [self prepareForRoute];
     }
     
-    switch (_routeType) {
-        case JRNavigationSetRouteTypeReplace:{
+    switch (_routeType)
+    {
+        case JRNavigationSetRouteTypeReplace:
+        {
             [navigationController setViewControllers:destinationViewControllers animated:animated];
         }
             break;
             
-        case JRNavigationSetRouteTypeAppend:{
+        case JRNavigationSetRouteTypeAppend:
+        {
             NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
             [viewControllers addObjectsFromArray:destinationViewControllers];
             [navigationController setViewControllers:viewControllers];
         }
             break;
             
-        case JRNavigationSetRouteTypeInsert:{
+        case JRNavigationSetRouteTypeAppendAndPopCurrent:
+        {
+            NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
+            [viewControllers removeLastObject];
+            [viewControllers addObjectsFromArray:destinationViewControllers];
+            [navigationController setViewControllers:viewControllers];
+        }
+            break;
+            
+        case JRNavigationSetRouteTypeInsert:
+        {
             NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
             [viewControllers insertObjects:destinationViewControllers atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [destinationViewControllers count])]];
             [navigationController setViewControllers:viewControllers];
         }
             break;
             
-        case JRNavigationSetRouteTypeCustom:{
-             NSAssert(_customSetRouteBlock != NULL, @"customSetRouteBlock can not be NULL");
+        case JRNavigationSetRouteTypeCustom:
+        {
+            NSAssert(_customSetRouteBlock != NULL, @"customSetRouteBlock can not be NULL");
             [navigationController setViewControllers:_customSetRouteBlock([navigationController viewControllers], destinationViewControllers)];
         }
             break;
@@ -79,12 +101,7 @@
             break;
     }
     
-    [self clear];
-        
-    if (completionBlock != NULL){
-        completionBlock();
-    }
-    
+    [self clearWithCompletion:completionBlock];
 }
 
 @end
