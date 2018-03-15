@@ -73,6 +73,15 @@
         }
             break;
             
+        case JRNavigationSetRouteTypeAppendAndPopCurrent:
+        {
+            NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
+            [viewControllers removeLastObject];
+            [viewControllers addObjectsFromArray:destinationViewControllers];
+            [navigationController setViewControllers:viewControllers];
+        }
+            break;
+            
         case JRNavigationSetRouteTypeInsert:
         {
             NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];

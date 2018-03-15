@@ -25,6 +25,7 @@
 typedef enum {
     JRNavigationSetRouteTypeReplace = 0,
     JRNavigationSetRouteTypeAppend,
+    JRNavigationSetRouteTypeAppendAndPopCurrent,
     JRNavigationSetRouteTypeInsert,
     JRNavigationSetRouteTypeCustom
 }JRNavigationSetRouteType;
