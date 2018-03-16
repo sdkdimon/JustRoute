@@ -69,7 +69,7 @@
         {
             NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
             [viewControllers addObjectsFromArray:destinationViewControllers];
-            [navigationController setViewControllers:viewControllers];
+            [navigationController setViewControllers:viewControllers animated:animated];
         }
             break;
             
@@ -78,7 +78,7 @@
             NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
             [viewControllers removeLastObject];
             [viewControllers addObjectsFromArray:destinationViewControllers];
-            [navigationController setViewControllers:viewControllers];
+            [navigationController setViewControllers:viewControllers animated:animated];
         }
             break;
             
@@ -86,7 +86,7 @@
         {
             NSMutableArray *viewControllers = [[navigationController viewControllers] mutableCopy];
             [viewControllers insertObjects:destinationViewControllers atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [destinationViewControllers count])]];
-            [navigationController setViewControllers:viewControllers];
+            [navigationController setViewControllers:viewControllers animated:animated];
         }
             break;
             
