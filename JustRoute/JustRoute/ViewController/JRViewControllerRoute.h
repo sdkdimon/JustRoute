@@ -1,5 +1,5 @@
 //
-//  JRWindowFactoryBlock.h
+//  JRViewControllerRoute.h
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,9 +20,19 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#ifndef JRWindowFactoryBlock_h
-#define JRWindowFactoryBlock_h
 
-typedef UIWindow *(^JRWindowFactoryBlock)(void);
+#import <JustRoute/JRRoute.h>
 
-#endif /* JRWindowFactoryBlock_h */
+#import <UIKit/UIViewController.h>
+
+@interface JRViewControllerRoute : JRRoute
+
+@property (strong, nonatomic, readwrite) UIViewController *source;
+@property (strong, nonatomic, readwrite) UIViewController *destination;
+
+- (UIViewController *)findSourceViewController;
+
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source;
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void(^)(void))completionBlock;
+
+@end

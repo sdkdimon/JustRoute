@@ -31,8 +31,6 @@
 @end
 
 @implementation JRRoute
-@synthesize sourceViewController = _sourceViewController;
-@synthesize destinationViewController = _destinationViewController;
 
 - (JRRoute *)prepareForRouteBlock:(void (^)(id))prepareForRouteBlock
 {
@@ -47,17 +45,17 @@
 
 - (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock
 {
-    [self passAnimated:animated sourceViewController:[self findSourceViewController] completion:completionBlock];
+
 }
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController
+- (void)passAnimated:(BOOL)animated source:(id)source
 {
-    [self passAnimated:animated sourceViewController:sourceViewController completion:NULL];
+    [self passAnimated:animated source:source completion:NULL];
 }
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock
+- (void)passAnimated:(BOOL)animated source:(id)source completion:(void (^)(void))completionBlock
 {
-    NSAssert(sourceViewController != nil, @"Source view controller can't be nil");
+    
 }
 
 - (void)prepareForRoute
@@ -75,26 +73,25 @@
 
 - (void)clear
 {
-    [self setSourceViewController:nil];
-    [self setDestinationViewController:nil];
+    [self setSource:nil];
+    [self setDestination:nil];
     [self setParams:nil];
     self.prepareForRouteBlock = NULL;
 }
 
-- (UIViewController *)findSourceViewController
+- (void)clearWithCompletion:(void (^)(void))completion
 {
-    if (_owner != nil && [_owner isKindOfClass:[UIViewController class]]) return _owner;
-    [[NSException exceptionWithName:@"SourceViewControllerNotFoundException" reason:@"Can't find source view controller" userInfo:nil] raise];
-    return nil;
+    [self clear];
+    if (completion != NULL)
+    {
+        completion();
+    }
 }
 
-@end
-
-@implementation JRRoute (Deprecated)
-
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock
+- (id)createDestination
 {
-    [self passAnimated:animated sourceViewController:sender completion:completionBlock];
+    NSAssert(_destinationFactoryBlock != NULL, @"destinationFactoryBlock can not be NULL");
+    return _destinationFactoryBlock();
 }
 
 @end

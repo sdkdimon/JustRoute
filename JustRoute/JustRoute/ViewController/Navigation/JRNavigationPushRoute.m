@@ -24,32 +24,15 @@
 
 @implementation JRNavigationPushRoute
 
-+ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
-    return [[self alloc] initWithDestinationViewControllerFactoryBlock:destinationViewControllerFactoryBlock];
-}
-
-- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock{
-    self = [super init];
-    if (self != nil){
-        _destinationViewControllerFactoryBlock = destinationViewControllerFactoryBlock;
-    }
-    return self;
-}
-
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock{
-    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
-    UINavigationController *navigationController = [self extractNavigationController:sourceViewController];
-    [self setSourceViewController:sourceViewController];
-    [self setDestinationViewController:_destinationViewControllerFactoryBlock()];
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void (^)(void))completionBlock
+{
+    [super passAnimated:animated source:source completion:completionBlock];
+    UINavigationController *navigationController = [self extractNavigationController:source];
+    [self setSource:source];
+    [self setDestination:[self createDestination]];
     [self prepareForRoute];
-    [navigationController pushViewController:_destinationViewController animated:animated];
-    
-    [self clear];
-    
-    if (completionBlock != NULL){
-        completionBlock();
-    }
-    
+    [navigationController pushViewController:self.destination animated:animated];
+    [self clearWithCompletion:completionBlock];
 }
 
 @end

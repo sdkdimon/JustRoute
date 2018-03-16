@@ -1,5 +1,5 @@
 //
-//  JRViewControllerFactoryBlock.h
+//  JRViewControllerRoute.m
 //  Copyright (c) 2016 Dmitry Lizin (sdkdimon@gmail.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,10 +20,31 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#ifndef JRViewControllerFactoryBlock_h
-#define JRViewControllerFactoryBlock_h
+#import "JRViewControllerRoute.h"
 
-typedef UIViewController *(^JRViewControllerFactoryBlock)(void);
+@implementation JRViewControllerRoute
+@dynamic source, destination;
 
+- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock
+{
+    [self passAnimated:animated source:[self findSourceViewController] completion:completionBlock];
+}
 
-#endif /* JRViewControllerFactoryBlock_h */
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source
+{
+    [super passAnimated:animated source:source];
+}
+
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void (^)(void))completionBlock
+{
+    NSAssert(source != nil, @"Source view controller can't be nil");
+}
+
+- (UIViewController *)findSourceViewController
+{
+    if (self.owner != nil && [self.owner isKindOfClass:[UIViewController class]]) return self.owner;
+    [[NSException exceptionWithName:@"SourceViewControllerNotFoundException" reason:@"Can't find source view controller" userInfo:nil] raise];
+    return nil;
+}
+
+@end

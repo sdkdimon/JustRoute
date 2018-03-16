@@ -20,15 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRNavigationRoute.h"
-#import "JRViewControllerFactoryBlock.h"
+#import <JustRoute/JRNavigationRoute.h>
 
 @interface JRNavigationPushRoute : JRNavigationRoute
-
-+ (instancetype)routeWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-- (instancetype)initWithDestinationViewControllerFactoryBlock:(JRViewControllerFactoryBlock)destinationViewControllerFactoryBlock;
-
-@property (strong, nonatomic, readwrite) JRViewControllerFactoryBlock destinationViewControllerFactoryBlock;
 
 @end

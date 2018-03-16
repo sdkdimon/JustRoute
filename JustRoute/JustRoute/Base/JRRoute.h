@@ -22,16 +22,19 @@
 
 #import <UIKit/UIKit.h>
 
-#import <JustRoute/JRRouting.h>
+#import <JustRoute/JRRouteDestinationFactoryBlock.h>
 
 @protocol JRRouteDelegate;
 
-@interface JRRoute : NSObject <JRRouting>
-{
-@protected
-    __strong UIViewController *_sourceViewController;
-    __strong UIViewController *_destinationViewController;
-}
+@interface JRRoute : NSObject
+
+@property (strong, nonatomic, readwrite) JRRouteDestinationFactoryBlock destinationFactoryBlock;
+
+@property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
+@property (weak, nonatomic, readwrite) id owner;
+
+@property (strong, nonatomic, readwrite) id source;
+@property (strong, nonatomic, readwrite) id destination;
 
 @property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
@@ -42,23 +45,13 @@
 - (void)passAnimated:(BOOL)animated;
 - (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock;
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController;
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void(^)(void))completionBlock;
+- (void)passAnimated:(BOOL)animated source:(id)source;
+- (void)passAnimated:(BOOL)animated source:(id)source completion:(void(^)(void))completionBlock;
 
-- (UIViewController *)findSourceViewController;
 - (void)prepareForRoute;
 - (void)clear;
+- (void)clearWithCompletion:(void (^)(void))completion;
 
-@property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
-@property (weak, nonatomic, readwrite) id owner;
-
-@property (strong, nonatomic, readwrite) UIViewController *sourceViewController;
-@property (strong, nonatomic, readwrite) UIViewController *destinationViewController;
-
-@end
-
-@interface JRRoute (Deprecated)
-
-- (void)passFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void(^)(void))completionBlock;
+- (id)createDestination;
 
 @end

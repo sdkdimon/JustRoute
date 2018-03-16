@@ -22,37 +22,29 @@
 
 #import "JRWindowRoute.h"
 
-@interface JRWindowRoute ()
-
-@property (strong, nonatomic, readwrite) UIWindow *destinationWindow;
-
-@end
-
 @implementation JRWindowRoute
+@dynamic source, destination;
 
-- (void)passAnimated:(BOOL)animated sourceViewController:(UIViewController *)sourceViewController completion:(void (^)(void))completionBlock
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source
 {
-    [super passAnimated:animated sourceViewController:sourceViewController completion:completionBlock];
-    NSAssert(_windowFactoryBlock != nil, @"windowFactoryBlock can not be NULL");
-    UIWindow *window = _windowFactoryBlock();
-    [self setSourceViewController:sourceViewController];
-    [self setDestinationViewController:[window rootViewController]];
+    [super passAnimated:animated source:source];
+}
+
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source completion:(void (^)(void))completionBlock
+{
+    [super passAnimated:animated source:source completion:completionBlock];
+    UIWindow *window = [self createDestination];
+    [self setSource:source];
+    [self setDestination:window];
     [self prepareForRoute];
-    [self setDestinationWindow:window];
     [window makeKeyAndVisible];
-    [self clear];
+    [self clearWithCompletion:completionBlock];
+    [self setDestination:window];
 }
 
-- (void)passReverseFromViewController:(UIViewController *)sender animated:(BOOL)animated completion:(void (^)(void))completionBlock
+- (void)close
 {
-    [self setSourceViewController:sender];
-    [self setDestinationViewController:[_sourceWindow rootViewController]];
-    [self prepareForRoute];
-    [self setSourceWindow:nil];
-    [self setDestinationWindow:nil];
-    [self clear];
+    [self setDestination:nil];
 }
-
-
 
 @end

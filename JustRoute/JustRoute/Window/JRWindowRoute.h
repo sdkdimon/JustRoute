@@ -20,14 +20,16 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "JRRoute.h"
-#import "JRWindowFactoryBlock.h"
-#import "JRReversibleRouting.h"
+#import <JustRoute/JRRoute.h>
 
-@interface JRWindowRoute : JRRoute <JRReversibleRouting>
+@interface JRWindowRoute : JRRoute
 
-@property (strong, nonatomic, readwrite) UIWindow *sourceWindow;
-@property (strong, nonatomic, readonly) UIWindow *destinationWindow;
-@property (strong, nonatomic, readwrite) JRWindowFactoryBlock windowFactoryBlock;
+@property (strong, nonatomic, readwrite) UIWindow *source;
+@property (strong, nonatomic, readwrite) UIWindow *destination;
+
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source;
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source completion:(void(^)(void))completionBlock;
+
+- (void)close;
 
 @end

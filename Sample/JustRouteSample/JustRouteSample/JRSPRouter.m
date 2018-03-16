@@ -80,38 +80,41 @@ static NSString * const PUSH_ROUTE_IDENTIFIER = @"pushRoute";
     } else {
        [_entityStack addObject:entity];
     }
-    JRRoute *route = [JRNavigationPushRoute routeWithDestinationViewControllerFactoryBlock:^UIViewController<JRRouteDelegate> *{
+    JRRoute *route = [[JRNavigationPushRoute alloc] init];
+    [route setDestinationFactoryBlock:^UIViewController<JRRouteDelegate> *{
         return [[self mainStoryboard] instantiateViewControllerWithIdentifier:@"JRSPDetailViewController"];
     }];
     [route setTag:JRSPRouteTypePush];
     [route setDelegate:self];
-    [route passAnimated:YES sourceViewController:sender];
+    [route passAnimated:YES source:sender];
 }
 - (void)popEntityWithSender:(UIViewController *)sender{
     if ([_entityStack count] > 0){
-        JRRoute *route = [JRNavigationPopRoute routeWithDestinationViewController:nil routeType:JRNavigationPopRouteTypeDefault];
+        JRNavigationPopRoute *route = [[JRNavigationPopRoute alloc] init];
+        route.routeType = JRNavigationPopRouteTypeDefault;
         [route setTag:JRSPRouteTypePop];
         [route setDelegate:self];
         
         NSUInteger lastEntityIdx = [_entityStack count] - 1;
         [_entityStack removeObjectAtIndex:lastEntityIdx];
-        [route passAnimated:YES sourceViewController:sender];
+        [route passAnimated:YES source:sender];
     }
     
 }
 
 - (void)popToListOfEntitiesWithSender:(UIViewController *)sender{
     if ([_entityStack count] > 0){
-        JRRoute *route = [JRNavigationPopRoute routeWithDestinationViewController:nil routeType:JRNavigationPopRouteTypeToRoot];
+        JRNavigationPopRoute *route = [[JRNavigationPopRoute alloc] init];
+        route.routeType = JRNavigationPopRouteTypeToRoot;
         [route setTag:JRSPRouteTypePopToRoot];
         [route setDelegate:self];
         [_entityStack removeAllObjects];
-        [route passAnimated:YES sourceViewController:sender];
+        [route passAnimated:YES source:sender];
     }
 }
 
 - (void)prepareForRoute:(JRRoute *)route{
-    id destinationViewController = [route destinationViewController];
+    id destinationViewController = route.destination;
     
     switch ([route tag]) {
         case JRSPRouteTypePush:{
