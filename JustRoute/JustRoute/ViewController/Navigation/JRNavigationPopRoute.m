@@ -30,17 +30,25 @@
     
     UINavigationController *navigationController = [self extractNavigationController:source];
     [self setSource:source];
-    [self prepareForRoute];
+    
     switch (_routeType)
     {
         case JRNavigationPopRouteTypeDefault:
         {
             if (self.destination != nil)
             {
+                [self prepareForRoute];
                 [navigationController popToViewController:self.destination animated:animated];
             }
             else
             {
+                NSArray <UIViewController *> *viewControllers = navigationController.viewControllers;
+                NSInteger viewControllerLastIndex = viewControllers.count - 1;
+                if (viewControllerLastIndex > 0)
+                {
+                    self.destination = [viewControllers objectAtIndex:viewControllerLastIndex - 1];
+                }
+                [self prepareForRoute];
                 [navigationController popViewControllerAnimated:animated];
             }
         }
@@ -48,6 +56,9 @@
             
         case JRNavigationPopRouteTypeToRoot:
         {
+            NSArray <UIViewController *> *viewControllers = navigationController.viewControllers;
+            self.destination = viewControllers.firstObject;
+            [self prepareForRoute];
             [navigationController popToRootViewControllerAnimated:animated];
         }
             
