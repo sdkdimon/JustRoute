@@ -24,6 +24,7 @@
 
 typedef enum {
     JRNavigationPopRouteTypeDefault = 0,
+    JRNavigationPopRouteTypeFromSource,
     JRNavigationPopRouteTypeToRoot
 }JRNavigationPopRouteType;
 

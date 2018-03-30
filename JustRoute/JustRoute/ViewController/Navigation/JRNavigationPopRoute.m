@@ -35,17 +35,17 @@
     {
         case JRNavigationPopRouteTypeDefault:
         {
-            if (self.destination == nil)
-            {
-                NSArray <UIViewController *> *viewControllers = navigationController.viewControllers;
-                NSUInteger indexOfSource = [viewControllers indexOfObject:source];
-                if (indexOfSource > 0)
-                {
-                    self.destination = [viewControllers objectAtIndex:indexOfSource - 1];
-                }
-            }
-            [self prepareForRoute];
-            [navigationController popToViewController:self.destination animated:animated];
+            [self handlePopToViewControllerPassAnimated:animated
+                                                 source:navigationController.topViewController
+                                   navigationController:navigationController];
+        }
+            break;
+            
+        case JRNavigationPopRouteTypeFromSource:
+        {
+            [self handlePopToViewControllerPassAnimated:animated
+                                                 source:source
+                                   navigationController:navigationController];
         }
             break;
             
@@ -64,5 +64,22 @@
     [self clearWithCompletion:completionBlock];
 }
 
+
+- (void)handlePopToViewControllerPassAnimated:(BOOL)animated
+                                       source:(UIViewController *)source
+                         navigationController:(UINavigationController *)navigationController
+{
+    if (self.destination == nil)
+    {
+        NSArray <UIViewController *> *viewControllers = navigationController.viewControllers;
+        NSUInteger indexOfSource = [viewControllers indexOfObject:source];
+        if (indexOfSource > 0)
+        {
+            self.destination = [viewControllers objectAtIndex:indexOfSource - 1];
+        }
+    }
+    [self prepareForRoute];
+    [navigationController popToViewController:self.destination animated:animated];
+}
 
 @end
