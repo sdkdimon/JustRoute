@@ -30,7 +30,7 @@
 {    
     [super passAnimated:animated source:source completion:completionBlock];
     [self setSource:source];
-    [self setDestination:[self createDestination]];
+    [self setDestination:source.presentingViewController];
     [self prepareForRoute];
     [source dismissViewControllerAnimated:animated completion:completionBlock];
     [self clear];
