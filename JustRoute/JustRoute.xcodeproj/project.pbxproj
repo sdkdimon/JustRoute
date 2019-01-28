@@ -11,7 +11,6 @@
 		8A1058231FD06E0D00858B2C /* JRRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72263E1D5DF072003656C1 /* JRRoute.m */; };
 		8A1058251FD06E2700858B2C /* JRWindowRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A7226291D5DF072003656C1 /* JRWindowRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A10582F1FD06E2700858B2C /* JRRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A72263D1D5DF072003656C1 /* JRRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A1058301FD06E2700858B2C /* JRRouteDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A72263F1D5DF072003656C1 /* JRRouteDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A2478231FEAD9D300146A1C /* JRNavigationPopRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2478161FEAD9D300146A1C /* JRNavigationPopRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A2478241FEAD9D300146A1C /* JRNavigationPopRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2478171FEAD9D300146A1C /* JRNavigationPopRoute.m */; };
 		8A2478251FEAD9D300146A1C /* JRNavigationPushRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2478181FEAD9D300146A1C /* JRNavigationPushRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,7 +49,6 @@
 		8A72262A1D5DF072003656C1 /* JRWindowRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWindowRoute.m; sourceTree = "<group>"; };
 		8A72263D1D5DF072003656C1 /* JRRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRoute.h; sourceTree = "<group>"; };
 		8A72263E1D5DF072003656C1 /* JRRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRRoute.m; sourceTree = "<group>"; };
-		8A72263F1D5DF072003656C1 /* JRRouteDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRouteDelegate.h; sourceTree = "<group>"; };
 		8A93D40D1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRRouteDestinationFactoryBlock.h; sourceTree = "<group>"; };
 		8A93D40F1FEAC9EF00722BE8 /* JRViewControllerRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerRoute.h; sourceTree = "<group>"; };
 		8A93D4101FEAC9EF00722BE8 /* JRViewControllerRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerRoute.m; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 		8A0BF0261FEBC52F006A91D5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8A72263F1D5DF072003656C1 /* JRRouteDelegate.h */,
 				8A93D40D1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h */,
 				8A72263D1D5DF072003656C1 /* JRRoute.h */,
 				8A72263E1D5DF072003656C1 /* JRRoute.m */,
@@ -169,7 +166,6 @@
 				8A24782D1FEAD9D300146A1C /* JRViewControllerPresentRoute.h in Headers */,
 				8A24782B1FEAD9D300146A1C /* JRViewControllerDismissRoute.h in Headers */,
 				8A10582F1FD06E2700858B2C /* JRRoute.h in Headers */,
-				8A1058301FD06E2700858B2C /* JRRouteDelegate.h in Headers */,
 				8A93D4111FEAC9EF00722BE8 /* JRViewControllerRoute.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +197,7 @@
 		8AB8F1491D3FD930006CBA9A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = dimon;
 				TargetAttributes = {
 					8A1058121FD06DF200858B2C = {
@@ -333,12 +329,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -385,12 +383,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

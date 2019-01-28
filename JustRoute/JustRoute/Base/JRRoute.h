@@ -24,13 +24,10 @@
 
 #import <JustRoute/JRRouteDestinationFactoryBlock.h>
 
-@protocol JRRouteDelegate;
-
 @interface JRRoute : NSObject
 
 @property (strong, nonatomic, readwrite) JRRouteDestinationFactoryBlock destinationFactoryBlock;
 
-@property (weak, nonatomic, readwrite) id <JRRouteDelegate> delegate;
 @property (weak, nonatomic, readwrite) id owner;
 
 @property (strong, nonatomic, readwrite) id source;
@@ -38,7 +35,6 @@
 
 @property (strong, nonatomic, readwrite) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
-@property (strong, nonatomic, readwrite) id params;
 
 - (JRRoute *)prepareForRouteBlock:(void (^)(id))prepareForRouteBlock;
 

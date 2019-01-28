@@ -22,8 +22,6 @@
 
 #import "JRRoute.h"
 
-#import "JRRouteDelegate.h"
-
 @interface JRRoute ()
 
 @property (strong, nonatomic, readwrite) void (^prepareForRouteBlock)(id);
@@ -64,18 +62,12 @@
     {
         _prepareForRouteBlock(self);
     }
-    
-    if (_delegate != nil && [_delegate respondsToSelector:@selector(prepareForRoute:)])
-    {
-        [_delegate prepareForRoute:self];
-    }
 }
 
 - (void)clear
 {
     [self setSource:nil];
     [self setDestination:nil];
-    [self setParams:nil];
     self.prepareForRouteBlock = NULL;
 }
 
