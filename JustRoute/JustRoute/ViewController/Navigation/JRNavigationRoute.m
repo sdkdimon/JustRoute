@@ -27,6 +27,14 @@
 - (UINavigationController *)extractNavigationController:(UIViewController *)viewController
 {
     UINavigationController *navigationController = [viewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)viewController : [viewController navigationController];
+    if (navigationController == nil)
+    {
+        UIViewController *presentingViewController = viewController.presentingViewController;
+        if (presentingViewController != nil && [presentingViewController isKindOfClass:[UINavigationController class]])
+        {
+            navigationController = (UINavigationController *)presentingViewController;
+        }
+    }
     NSAssert(navigationController != nil, @"Source view controller must be an instance of UINavigationController or have a navigation controller");
     return navigationController;
 }
