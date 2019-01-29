@@ -28,6 +28,10 @@
 {
     [super passAnimated:animated source:source completion:completionBlock];
     UINavigationController *navigationController = [self extractNavigationController:source];
+    if (navigationController == nil)
+    {
+        return NSLog(@"No navigation controller == no action, please check the state");
+    }
     [self setSource:source];
     [self setDestination:[self createDestination]];
     [self prepareForRoute];
