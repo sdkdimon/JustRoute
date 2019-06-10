@@ -72,7 +72,7 @@
     if (self.destination == nil)
     {
         NSArray <UIViewController *> *viewControllers = navigationController.viewControllers;
-        NSUInteger indexOfDestination = [viewControllers indexOfObject:source] - 1;
+        __block NSUInteger indexOfDestination = [viewControllers indexOfObject:source] - 1;
 
         if (![viewControllers containsObject:source]){
             [viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
