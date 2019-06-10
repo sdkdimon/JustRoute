@@ -72,20 +72,20 @@
     if (self.destination == nil)
     {
         NSArray <UIViewController *> *viewControllers = navigationController.viewControllers;
-        __block NSUInteger indexOfDestination = [viewControllers indexOfObject:source] - 1;
+        __block NSUInteger indexOfSource = [viewControllers indexOfObject:source];
 
         if (![viewControllers containsObject:source]){
             [viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([obj.childViewControllers containsObject:source]) {
-                    indexOfDestination = idx;
+                    indexOfSource = idx;
                     *stop = YES;
                 }
             }];
         }
 
-        if (indexOfDestination >= 0)
+        if (indexOfSource > 0)
         {
-            self.destination = [viewControllers objectAtIndex:indexOfDestination];
+            self.destination = [viewControllers objectAtIndex:indexOfSource - 1];
         }
     }
     [self prepareForRoute];
