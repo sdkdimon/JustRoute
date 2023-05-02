@@ -25,6 +25,8 @@
 
 #import <UIKit/UIViewController.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface JRViewControllerRoute : JRRoute
 
 @property (strong, nonatomic, readwrite) UIViewController *source;
@@ -33,6 +35,8 @@
 - (UIViewController *)findSourceViewController;
 
 - (void)passAnimated:(BOOL)animated source:(UIViewController *)source;
-- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void(^)(void))completionBlock;
+- (void)passAnimated:(BOOL)animated source:(UIViewController *)source completion:(void(^_Nullable)(void))completionBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

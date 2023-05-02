@@ -22,32 +22,36 @@
 
 #import <UIKit/UIKit.h>
 
-#import <JustRoute/JRRouteDestinationFactoryBlock.h>
+NS_ASSUME_NONNULL_BEGIN
+
+typedef id _Nonnull (^JRRouteDestinationFactoryBlock)(void);
 
 @interface JRRoute : NSObject
 
 @property (strong, nonatomic, readwrite) JRRouteDestinationFactoryBlock destinationFactoryBlock;
 
-@property (weak, nonatomic, readwrite) id owner;
+@property (weak, nonatomic, readwrite, nullable) id owner;
 
-@property (strong, nonatomic, readwrite) id source;
-@property (strong, nonatomic, readwrite) id destination;
+@property (strong, nonatomic, readwrite, nullable) id source;
+@property (strong, nonatomic, readwrite, nullable) id destination;
 
-@property (strong, nonatomic, readwrite) NSString *identifier;
+@property (strong, nonatomic, readwrite, nullable) NSString *identifier;
 @property (assign, nonatomic, readwrite) NSInteger tag;
 
 - (JRRoute *)prepareForRouteBlock:(void (^)(id))prepareForRouteBlock;
 
 - (void)passAnimated:(BOOL)animated;
-- (void)passAnimated:(BOOL)animated completion:(void(^)(void))completionBlock;
+- (void)passAnimated:(BOOL)animated completion:(void(^_Nullable)(void))completionBlock;
 
 - (void)passAnimated:(BOOL)animated source:(id)source;
-- (void)passAnimated:(BOOL)animated source:(id)source completion:(void(^)(void))completionBlock;
+- (void)passAnimated:(BOOL)animated source:(id)source completion:(void(^_Nullable)(void))completionBlock;
 
 - (void)prepareForRoute;
 - (void)clear;
-- (void)clearWithCompletion:(void (^)(void))completion;
+- (void)clearWithCompletion:(void (^_Nullable)(void))completion;
 
 - (id)createDestination;
 
 @end
+
+NS_ASSUME_NONNULL_END

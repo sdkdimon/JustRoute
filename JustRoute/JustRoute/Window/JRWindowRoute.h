@@ -22,14 +22,18 @@
 
 #import <JustRoute/JRRoute.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface JRWindowRoute : JRRoute
 
-@property (strong, nonatomic, readwrite) UIWindow *source;
-@property (strong, nonatomic, readwrite) UIWindow *destination;
+@property (strong, nonatomic, readwrite, nullable) UIWindow *source;
+@property (strong, nonatomic, readwrite, nullable) UIWindow *destination;
 
 - (void)passAnimated:(BOOL)animated source:(UIWindow *)source;
-- (void)passAnimated:(BOOL)animated source:(UIWindow *)source completion:(void(^)(void))completionBlock;
+- (void)passAnimated:(BOOL)animated source:(UIWindow *)source completion:(void(^_Nullable)(void))completionBlock;
 
 - (void)close;
 
 @end
+
+NS_ASSUME_NONNULL_END

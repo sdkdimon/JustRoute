@@ -22,6 +22,10 @@
 
 #import <JustRoute/JRViewControllerRoute.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface JRViewControllerDismissRoute : JRViewControllerRoute
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -93,7 +93,8 @@
         case JRNavigationSetRouteTypeCustom:
         {
             NSAssert(_customSetRouteBlock != NULL, @"customSetRouteBlock can not be NULL");
-            [navigationController setViewControllers:_customSetRouteBlock([navigationController viewControllers], destinationViewControllers)];
+            [navigationController setViewControllers:_customSetRouteBlock([navigationController viewControllers], destinationViewControllers)
+                                            animated:animated];
         }
             break;
             

@@ -22,8 +22,12 @@
 
 #import <JustRoute/JRViewControllerRoute.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface JRNavigationRoute : JRViewControllerRoute
 
 - (UINavigationController *)extractNavigationController:(UIViewController *)viewController;
 
 @end
+
+NS_ASSUME_NONNULL_END

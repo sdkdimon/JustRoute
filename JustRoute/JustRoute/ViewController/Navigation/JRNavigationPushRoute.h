@@ -22,6 +22,10 @@
 
 #import <JustRoute/JRNavigationRoute.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface JRNavigationPushRoute : JRNavigationRoute
 
 @end
+
+NS_ASSUME_NONNULL_END

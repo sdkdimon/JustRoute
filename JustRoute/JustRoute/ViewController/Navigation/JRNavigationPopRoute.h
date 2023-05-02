@@ -22,14 +22,18 @@
 
 #import <JustRoute/JRNavigationRoute.h>
 
-typedef enum {
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, JRNavigationPopRouteType) {
     JRNavigationPopRouteTypeDefault = 0,
     JRNavigationPopRouteTypeFromSource,
     JRNavigationPopRouteTypeToRoot
-}JRNavigationPopRouteType;
+};
 
 @interface JRNavigationPopRoute : JRNavigationRoute
 
 @property (assign, nonatomic, readwrite) JRNavigationPopRouteType routeType;
 
 @end
+
+NS_ASSUME_NONNULL_END

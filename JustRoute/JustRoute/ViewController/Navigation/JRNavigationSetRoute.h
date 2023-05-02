@@ -22,23 +22,30 @@
 
 #import <JustRoute/JRNavigationRoute.h>
 
-typedef enum {
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, JRNavigationSetRouteType) {
     JRNavigationSetRouteTypeReplace = 0,
     JRNavigationSetRouteTypeAppend,
     JRNavigationSetRouteTypeAppendAndPopCurrent,
     JRNavigationSetRouteTypeInsert,
     JRNavigationSetRouteTypeCustom
-}JRNavigationSetRouteType;
+};
+
+typedef NSArray<UIViewController*>* _Nonnull (^JRNavigationCustomSetRouteBlock)(NSArray<UIViewController*>* _Nonnull currentViewControllers,
+                                                                                NSArray<UIViewController*>* _Nonnull destinationViewControllers);
 
 @interface JRNavigationSetRoute : JRNavigationRoute
 
-+ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray <JRRouteDestinationFactoryBlock> *)destinationViewControllerFactoryBlocks
++ (instancetype)routeWithDestinationViewControllerFactoryBlocks:(NSArray<JRRouteDestinationFactoryBlock>*)destinationViewControllerFactoryBlocks
                                                       routeType:(JRNavigationSetRouteType)routeType;
-- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray <JRRouteDestinationFactoryBlock> *)destinationViewControllerFactoryBlocks
+- (instancetype)initWithDestinationViewControllerFactoryBlocks:(NSArray<JRRouteDestinationFactoryBlock>*)destinationViewControllerFactoryBlocks
                                                      routeType:(JRNavigationSetRouteType)routeType;
 
-@property (strong, nonatomic, readwrite) NSArray <JRRouteDestinationFactoryBlock> *destinationViewControllerFactoryBlocks;
+@property (strong, nonatomic, readwrite) NSArray<JRRouteDestinationFactoryBlock> *destinationViewControllerFactoryBlocks;
 @property (assign, nonatomic, readwrite) JRNavigationSetRouteType routeType;
-@property (copy, nonatomic, readwrite) NSArray *(^customSetRouteBlock)(NSArray *currenViewControllers, NSArray *destinationViewControllers);
+@property (copy, nonatomic, readwrite) JRNavigationCustomSetRouteBlock customSetRouteBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

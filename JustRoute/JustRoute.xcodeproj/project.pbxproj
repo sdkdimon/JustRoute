@@ -24,7 +24,6 @@
 		8A24782D1FEAD9D300146A1C /* JRViewControllerPresentRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2478211FEAD9D300146A1C /* JRViewControllerPresentRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A24782E1FEAD9D300146A1C /* JRViewControllerPresentRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2478221FEAD9D300146A1C /* JRViewControllerPresentRoute.m */; };
 		8A24782F1FEADD5100146A1C /* JustRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1058381FD074CA00858B2C /* JustRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A93D40E1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A93D40D1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A93D4111FEAC9EF00722BE8 /* JRViewControllerRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A93D40F1FEAC9EF00722BE8 /* JRViewControllerRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A93D4121FEAC9EF00722BE8 /* JRViewControllerRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A93D4101FEAC9EF00722BE8 /* JRViewControllerRoute.m */; };
 /* End PBXBuildFile section */
@@ -49,7 +48,6 @@
 		8A72262A1D5DF072003656C1 /* JRWindowRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWindowRoute.m; sourceTree = "<group>"; };
 		8A72263D1D5DF072003656C1 /* JRRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRoute.h; sourceTree = "<group>"; };
 		8A72263E1D5DF072003656C1 /* JRRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRRoute.m; sourceTree = "<group>"; };
-		8A93D40D1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRRouteDestinationFactoryBlock.h; sourceTree = "<group>"; };
 		8A93D40F1FEAC9EF00722BE8 /* JRViewControllerRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRViewControllerRoute.h; sourceTree = "<group>"; };
 		8A93D4101FEAC9EF00722BE8 /* JRViewControllerRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRViewControllerRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +66,6 @@
 		8A0BF0261FEBC52F006A91D5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8A93D40D1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h */,
 				8A72263D1D5DF072003656C1 /* JRRoute.h */,
 				8A72263E1D5DF072003656C1 /* JRRoute.m */,
 			);
@@ -157,7 +154,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A1058251FD06E2700858B2C /* JRWindowRoute.h in Headers */,
-				8A93D40E1FEAC72A00722BE8 /* JRRouteDestinationFactoryBlock.h in Headers */,
 				8A2478251FEAD9D300146A1C /* JRNavigationPushRoute.h in Headers */,
 				8A2478291FEAD9D300146A1C /* JRNavigationSetRoute.h in Headers */,
 				8A2478271FEAD9D300146A1C /* JRNavigationRoute.h in Headers */,
@@ -212,6 +208,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 8AB8F1481D3FD930006CBA9A;
@@ -274,7 +271,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = JustRoute/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sdkdimon.JustRoute;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -305,7 +302,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = JustRoute/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sdkdimon.JustRoute;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -363,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -411,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
